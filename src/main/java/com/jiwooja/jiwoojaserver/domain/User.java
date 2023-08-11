@@ -1,8 +1,11 @@
 package com.jiwooja.jiwoojaserver.domain;
 
+import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Table(name = "user")
@@ -36,4 +39,8 @@ public class User {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
     private Set<Authority> authorities;
+
+
+    @OneToMany(mappedBy = "user")
+    private List<PointLog> pointLogs = new ArrayList<>();
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Table(name = "user")
+@Table(name = "USER")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +18,7 @@ import java.util.Set;
 @EqualsAndHashCode
 public class User {
     @Id
-    @Column(name="user_id")
+    @Column(name="USER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
@@ -30,17 +30,17 @@ public class User {
     @Column(name = "NICKNAME", length = 50)
     private String nickname;
 
-    @Column(name = "token", length = 200)
+    @Column(name = "TOKEN", length = 200)
     private String token;
 
     @ManyToMany
     @JoinTable(
-            name = "user_authority",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")})
+            name = "USER_AUTHORITY",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")},
+            inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_NAME", referencedColumnName = "AUTHORITY_NAME")})
     private Set<Authority> authorities;
 
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "USER")
     private List<PointLog> pointLogs = new ArrayList<>();
 }

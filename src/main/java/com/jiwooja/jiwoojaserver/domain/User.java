@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Table(name = "USER")
+@Table(name = "J_USER")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -41,6 +41,9 @@ public class User {
     private Set<Authority> authorities;
 
 
-    @OneToMany(mappedBy = "USER")
+    @OneToMany(mappedBy = "J_USER")
     private List<PointLog> pointLogs = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Point> points = new ArrayList<>();
 }

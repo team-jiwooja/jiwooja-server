@@ -46,4 +46,7 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Point> points = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Ticket> tickets = new ArrayList<>();
 }

@@ -41,7 +41,7 @@ public class User {
     private Set<Authority> authorities;
 
 
-    @OneToMany(mappedBy = "J_USER")
+    @OneToMany(mappedBy = "user")
     private List<PointLog> pointLogs = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)

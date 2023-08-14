@@ -25,6 +25,7 @@ public class PointLogService {
      */
     public int preTotalPoint(Long userId){
         int preTotalPoint = 0;
+        // log test
 
         /* ========================================================================
          * 해당 계정의 가장 최근 포인트 로그 데이터 조회

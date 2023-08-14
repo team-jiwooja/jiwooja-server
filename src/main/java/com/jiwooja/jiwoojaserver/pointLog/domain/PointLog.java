@@ -22,7 +22,7 @@ public class PointLog {
     @ManyToOne(optional = false)
     @JoinColumn(
             name="USER_ID"
-            ,referencedColumnName="user_id")
+            ,referencedColumnName="USER_ID")
     private User user;
 
     @Column(name="USE_SEP")

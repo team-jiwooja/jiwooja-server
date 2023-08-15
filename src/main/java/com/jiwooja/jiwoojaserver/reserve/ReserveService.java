@@ -56,7 +56,7 @@ public class ReserveService {
          * 포인트 사용(U) 로그 insert
          * ==================================== */
         boolean logResult = pointLogService.pointLogging(
-                user.getUserId(), "U", ticketDto.getPrice(), preTotalPoint);
+                user.getUserId(), "U", ticketDto.getPrice(), preTotalPoint, saveTicket);
 
         return logResult;
     }

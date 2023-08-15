@@ -1,5 +1,6 @@
 package com.jiwooja.jiwoojaserver.pointLog.domain;
 
+import com.jiwooja.jiwoojaserver.domain.Ticket;
 import com.jiwooja.jiwoojaserver.domain.User;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -37,6 +40,10 @@ public class PointLog {
     @Column(name="INP_DATE")
     private LocalDateTime inpDate;
 
+
+    @OneToMany(mappedBy = "pointLogs")
+    private List<PointLogTicket> pointLogTickets = new ArrayList<>();
+
     /* ===========================================================================
      * 입력일 셋팅
      * @PrePersist : save(insert) 매서드 호출시 실행됨.
@@ -60,7 +67,7 @@ public class PointLog {
     }
 
     /* ===========================================================================
-     * User setting
+     * FK setting
      * =========================================================================== */
     public void setUser(User user){
         this.user = user;

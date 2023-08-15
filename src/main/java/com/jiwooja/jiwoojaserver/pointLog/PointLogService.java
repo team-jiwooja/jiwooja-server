@@ -1,9 +1,12 @@
 package com.jiwooja.jiwoojaserver.pointLog;
 
+import com.jiwooja.jiwoojaserver.domain.Ticket;
 import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogRepository;
+import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogTicket;
+import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogTicketRepository;
 import com.jiwooja.jiwoojaserver.pointLog.dto.PointLogDto;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,8 @@ public class PointLogService {
 
     @Autowired
     private PointLogRepository pointLogRepository;
+    @Autowired
+    private PointLogTicketRepository pointLogTicketRepository;
     @Autowired
     private UserRepository userRepository;
 
@@ -49,31 +54,19 @@ public class PointLogService {
      * @param userId 회원 구분자
      * @param point 충전/사용/환불하는 포인트 액수
      * @param useSep 사용구분 ( C:충전 / U:사용 / R:환불 )
+     * @param entity join 테이블 entity
      * @return boolean
      */
-    public boolean pointLogging(Long userId, String useSep, int point){
+    public boolean pointLogging(Long userId, String useSep, int point, Object entity){
         /* ========================================================================
-         * 1. 계정 존재 확인 및 셋팅
+         * 1. 총합 포인트 구하기
          * ======================================================================== */
-        User thisUser = userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
+        int preTotalPoint = preTotalPoint(userId);
 
         /* ========================================================================
-         * 2. PointLogDto 생성
+         * 2. T_POINT_LOG 테이블에 데이터 INSERT
          * ======================================================================== */
-        PointLogDto pointLogDto = new PointLogDto();
-        pointLogDto.setPoint(point);                            // 사용 point
-        pointLogDto.setUseSep(useSep);                          // 사용구분 "U" (C:충전 / U:사용 / R:환불)
-        pointLogDto.setTotalPointByPre(preTotalPoint(userId));  // 총합 포인트
-
-        /* ========================================================================
-         * 3. pointLogDto entity 변환 및 데이터 취합 & T_POINT_LOG 테이블에 INSERT
-         * ======================================================================== */
-        PointLog pointLog = pointLogDto.toEntity();
-        pointLog.setUser(thisUser);               // user
-        pointLogRepository.save(pointLog);
-
-        return true;
+        return pointLogging(userId, useSep, point, preTotalPoint, entity);
     }
 
     /**
@@ -85,7 +78,7 @@ public class PointLogService {
      * @param preTotalPoint 현재 총합 포인트
      * @return boolean
      */
-    public boolean pointLogging(Long userId, String useSep, int point, int preTotalPoint){
+    public boolean pointLogging(Long userId, String useSep, int point, int preTotalPoint, Object entity){
         /* ========================================================================
          * 1. 계정 존재 확인 및 셋팅
          * ======================================================================== */
@@ -97,7 +90,7 @@ public class PointLogService {
          * ======================================================================== */
         PointLogDto pointLogDto = new PointLogDto();
         pointLogDto.setPoint(point);                            // 사용 point
-        pointLogDto.setUseSep(useSep);                          // 사용구분 "U" (C:충전 / U:사용 / R:환불)
+        pointLogDto.setUseSep(useSep);                          // 사용구분 (C:충전 / U:사용 / R:환불)
         pointLogDto.setTotalPointByPre(preTotalPoint);          // 총합 포인트
 
         /* ========================================================================
@@ -106,6 +99,19 @@ public class PointLogService {
         PointLog pointLog = pointLogDto.toEntity();
         pointLog.setUser(thisUser);               // user
         pointLogRepository.save(pointLog);
+
+        /* ========================================================================
+         * 4. 사용 구분에 따른 테이블 컬럼 join
+         * ======================================================================== */
+        if ("U".equals(useSep) || "R".equals(useSep)){
+            // U:사용 / R:환불 일 경우, 예매 테이블 id 조인
+            PointLogTicket pointLogTicket
+                    = PointLogTicket.builder()
+                    .pointLogs(pointLog)
+                    .tickets((Ticket) entity)
+                    .build();
+            pointLogTicketRepository.save(pointLogTicket);
+        }
 
         return true;
     }

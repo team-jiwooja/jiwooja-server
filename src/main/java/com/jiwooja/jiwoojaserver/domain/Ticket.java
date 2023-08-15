@@ -1,5 +1,7 @@
 package com.jiwooja.jiwoojaserver.domain;
 
+import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
+import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogTicket;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,6 +11,8 @@ import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name="TICKET")
 @Entity
@@ -57,6 +61,10 @@ public class Ticket {
 
     @Column(name = "MOD_DATE")
     private LocalDateTime modDate;  // 수정일(환불일)
+
+
+    @OneToMany(mappedBy = "tickets")
+    private List<PointLogTicket> pointLogTickets = new ArrayList<>();
 
     /* ===========================================================================
      * 입력일 셋팅 / 디폴트 값 지정

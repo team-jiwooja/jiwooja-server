@@ -85,7 +85,7 @@ public class RefundService {
         /* ====================================
          * 포인트 환불(R) 로그 insert
          * ==================================== */
-        boolean logResult = pointLogService.pointLogging(userId, "R", point);
+        boolean logResult = pointLogService.pointLogging(userId, "R", point, reserveTicketEntity);
 
         return logResult;
     }
@@ -93,6 +93,6 @@ public class RefundService {
     // 포인트 충전(C) 로그 쌓기 용도
     public boolean chargePoint(PointLogDto pointLogDto){
         return pointLogService.pointLogging(
-                pointLogDto.getUserId(), "C", pointLogDto.getPoint());
+                pointLogDto.getUserId(), "C", pointLogDto.getPoint(), null);
     }
 }

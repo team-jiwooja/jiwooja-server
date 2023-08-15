@@ -1,18 +1,14 @@
 package com.jiwooja.jiwoojaserver.service;
 
-import com.jiwooja.jiwoojaserver.domain.Ticket;
-import com.jiwooja.jiwoojaserver.domain.User;
+import com.jiwooja.jiwoojaserver.domain.*;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
-import com.jiwooja.jiwoojaserver.domain.PointLog;
+import com.jiwooja.jiwoojaserver.repository.PointLogPointRepository;
 import com.jiwooja.jiwoojaserver.repository.PointLogRepository;
-import com.jiwooja.jiwoojaserver.domain.PointLogTicket;
 import com.jiwooja.jiwoojaserver.repository.PointLogTicketRepository;
 import com.jiwooja.jiwoojaserver.dto.PointLogDto;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class PointLogService {
@@ -21,6 +17,8 @@ public class PointLogService {
     private PointLogRepository pointLogRepository;
     @Autowired
     private PointLogTicketRepository pointLogTicketRepository;
+    @Autowired
+    private PointLogPointRepository pointLogPointRepository;
     @Autowired
     private UserRepository userRepository;
 
@@ -31,19 +29,19 @@ public class PointLogService {
      */
     public int preTotalPoint(Long userId){
         int preTotalPoint = 0;
-        // log test
 
         /* ========================================================================
-         * 해당 계정의 가장 최근 포인트 로그 데이터 조회
+         * 해당 계정 조회
          * ======================================================================== */
-        Optional<PointLog> prePointLog = pointLogRepository.findTopByUser_UserIdOrderByPointLogIdDesc(userId);
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
 
         /* ========================================================================
          * 가장 최근 포인트 로그 데이터가 존재할 경우, 해당 데이터의 총합 포인트 반환
          * 없을 경우, 0 값으로 반환
          * ======================================================================== */
-        if (prePointLog.isPresent()){
-            preTotalPoint = prePointLog.get().getTotalPoint();
+        if (user.getPointsTotal() != null){
+            preTotalPoint = user.getPointsTotal();
         }
 
         return preTotalPoint;
@@ -111,8 +109,20 @@ public class PointLogService {
                     .tickets((Ticket) entity)
                     .build();
             pointLogTicketRepository.save(pointLogTicket);
+
+            // User 총합 포인트 업데이트
+            thisUser.setTotalPoints(pointLogDto.getTotalPoint());
+
+        } else if("C".equals(useSep)){
+            PointLogPoint pointLogPoint
+                    = PointLogPoint.builder()
+                    .pointLogs(pointLog)
+                    .point((Point) entity)
+                    .build();
+            pointLogPointRepository.save(pointLogPoint);
         }
 
         return true;
     }
+
 }

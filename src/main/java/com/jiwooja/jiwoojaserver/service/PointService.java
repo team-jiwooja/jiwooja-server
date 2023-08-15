@@ -23,8 +23,6 @@ public class PointService {
 
     private final UserRepository userRepository;
 
-    private final PointLogRepository pointLogRepository;
-
     private final PointLogService pointLogService;
 
     public Long savePurchasePrice(String username, PointDto pointDto) {
@@ -51,7 +49,7 @@ public class PointService {
             userRepository.save(user);
 
             // 포인트 로그 작성
-            pointLogService.pointLogging(user.getUserId(), "C", point.getPurchasePrice(), null);
+            pointLogService.pointLogging(user.getUserId(), "C", point.getPurchasePrice(), point);
 
 
         } else {

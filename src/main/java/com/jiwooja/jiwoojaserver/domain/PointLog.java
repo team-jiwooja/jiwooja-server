@@ -41,6 +41,9 @@ public class PointLog {
     @OneToMany(mappedBy = "pointLogs")
     private List<PointLogTicket> pointLogTickets = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<PointLogPoint> pointLogPoints = new ArrayList<>();
+
     /* ===========================================================================
      * 입력일 셋팅
      * @PrePersist : save(insert) 매서드 호출시 실행됨.

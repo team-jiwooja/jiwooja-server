@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -28,6 +30,8 @@ public class Point {
     @JoinColumn(name = "USER_ID")
     private User user;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<PointLogPoint> pointLogPoints = new ArrayList<>();
 
     @Builder
     public Point(Integer purchasePrice, Boolean approved, LocalDateTime approvalDateTime, User user) {

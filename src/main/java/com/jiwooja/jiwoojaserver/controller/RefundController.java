@@ -22,10 +22,4 @@ public class RefundController {
         return refundService.refundPoint(ticketDto.getTicketId());
     }
 
-
-    // 포인트 충전 로그 쌓기 용도
-    @PostMapping(value = "/chargePoint")
-    public boolean chargePoint(@RequestBody PointLogDto pointLogDto){
-        return refundService.chargePoint(pointLogDto);
-    }
 }

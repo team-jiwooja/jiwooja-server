@@ -1,18 +1,19 @@
 package com.jiwooja.jiwoojaserver.service;
 
+import com.jiwooja.jiwoojaserver.domain.Point;
 import com.jiwooja.jiwoojaserver.domain.Ticket;
+import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.dto.TicketDto;
-import com.jiwooja.jiwoojaserver.service.PointLogService;
-import com.jiwooja.jiwoojaserver.dto.PointLogDto;
+import com.jiwooja.jiwoojaserver.repository.PointRepository;
 import com.jiwooja.jiwoojaserver.repository.TicketRepository;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
-import com.jiwooja.jiwoojaserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,6 +26,8 @@ public class RefundService {
     private UserService userService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PointRepository pointRepository;
 
     @Transactional
     public boolean refundPoint (Long ticketId) throws Exception {
@@ -90,9 +93,4 @@ public class RefundService {
         return logResult;
     }
 
-    // 포인트 충전(C) 로그 쌓기 용도
-    public boolean chargePoint(PointLogDto pointLogDto){
-        return pointLogService.pointLogging(
-                pointLogDto.getUserId(), "C", pointLogDto.getPoint(), null);
-    }
 }

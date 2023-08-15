@@ -61,8 +61,5 @@ public class Point {
     public void setApprovalDateTime(LocalDateTime approvalDateTime) {
         this.approvalDateTime = approvalDateTime;
     }
-
-    public boolean isApproved() {
-        return approved;
-    }
+    
 }

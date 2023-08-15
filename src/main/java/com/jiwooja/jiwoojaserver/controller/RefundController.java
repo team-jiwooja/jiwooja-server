@@ -1,0 +1,25 @@
+package com.jiwooja.jiwoojaserver.controller;
+
+import com.jiwooja.jiwoojaserver.dto.TicketDto;
+import com.jiwooja.jiwoojaserver.dto.PointLogDto;
+import com.jiwooja.jiwoojaserver.service.RefundService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+
+@RestController
+@RequestMapping(value = "/refund")
+public class RefundController {
+    @Autowired
+    private RefundService refundService;
+
+
+    /*
+     * 포인트 결제건에 대한 환불
+     */
+    @PostMapping(value="/point")
+    public boolean refundPoint(@RequestBody TicketDto ticketDto) throws Exception {
+        return refundService.refundPoint(ticketDto.getTicketId());
+    }
+
+}

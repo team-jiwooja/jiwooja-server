@@ -1,7 +1,7 @@
 package com.jiwooja.jiwoojaserver.Byoun.service;
 
 import com.jiwooja.jiwoojaserver.Byoun.dto.TicketDTO;
-import com.jiwooja.jiwoojaserver.Byoun.repository.TicketRepository;
+import com.jiwooja.jiwoojaserver.Byoun.repository.TicketsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,7 @@ import java.util.Optional;
 public class TicketService {
 
     @Autowired
-    private TicketRepository ticketRepository;
+    private TicketsRepository ticketRepository;
 
     public List<TicketDTO> searchMemTicket(String nickName) {
         return ticketRepository.findByNickname(nickName);

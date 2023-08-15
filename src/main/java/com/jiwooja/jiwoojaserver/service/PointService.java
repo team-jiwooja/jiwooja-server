@@ -5,14 +5,11 @@ import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.dto.PointDto;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.exception.PointNotFoundException;
-import com.jiwooja.jiwoojaserver.pointLog.PointLogService;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogRepository;
+import com.jiwooja.jiwoojaserver.repository.PointLogRepository;
 import com.jiwooja.jiwoojaserver.repository.PointRepository;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,8 +22,6 @@ public class PointService {
     private final PointRepository pointRepository;
 
     private final UserRepository userRepository;
-
-    private final PointLogRepository pointLogRepository;
 
     private final PointLogService pointLogService;
 
@@ -54,7 +49,7 @@ public class PointService {
             userRepository.save(user);
 
             // 포인트 로그 작성
-            pointLogService.pointLogging(user.getUserId(), "C", point.getPurchasePrice());
+            pointLogService.pointLogging(user.getUserId(), "C", point.getPurchasePrice(), point);
 
 
         } else {

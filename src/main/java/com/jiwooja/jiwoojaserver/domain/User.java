@@ -1,6 +1,5 @@
 package com.jiwooja.jiwoojaserver.domain;
 
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import lombok.*;
 
 import javax.persistence.*;
@@ -61,4 +60,11 @@ public class User {
         this.pointsTotal = totalPoints;
     }
 
+    public void setTotalPoints(int totalPoints){
+        this.pointsTotal = totalPoints;
+    }
+
+
+    @OneToMany(mappedBy = "user")
+    private List<Ticket> tickets = new ArrayList<>();
 }

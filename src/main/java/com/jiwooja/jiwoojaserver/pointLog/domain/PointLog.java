@@ -1,7 +1,6 @@
 package com.jiwooja.jiwoojaserver.pointLog.domain;
 
 import com.jiwooja.jiwoojaserver.domain.User;
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @Table(name="T_POINT_LOG")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 public class PointLog {
     @Id
     @Column(name="POINT_LOG_ID")
@@ -65,5 +64,13 @@ public class PointLog {
     public void setUser(User user){
         this.user = user;
     }
+
+    public void setPointLog(User user, String useSep, int point, LocalDateTime inpDate){
+        this.user = user;
+        this.useSep = useSep;
+        this.point = point;
+        this.inpDate = inpDate;
+    }
+
 
 }

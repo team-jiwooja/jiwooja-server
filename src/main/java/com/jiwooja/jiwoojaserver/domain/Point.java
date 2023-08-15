@@ -2,6 +2,7 @@ package com.jiwooja.jiwoojaserver.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jiwooja.jiwoojaserver.dto.PointDto;
+import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class Point {
 
     private Integer purchasePrice;
 
-    private Boolean approved;
+    private Boolean approved = false;
 
     private LocalDateTime approvalDateTime;
 
@@ -59,5 +60,9 @@ public class Point {
 
     public void setApprovalDateTime(LocalDateTime approvalDateTime) {
         this.approvalDateTime = approvalDateTime;
+    }
+
+    public boolean isApproved() {
+        return approved;
     }
 }

@@ -1,6 +1,7 @@
 package com.jiwooja.jiwoojaserver.pointLog;
 
 import com.jiwooja.jiwoojaserver.domain.User;
+import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogRepository;
 import com.jiwooja.jiwoojaserver.pointLog.dto.PointLogDto;
@@ -54,10 +55,8 @@ public class PointLogService {
         /* ========================================================================
          * 1. 계정 존재 확인 및 셋팅
          * ======================================================================== */
-        Optional<User> thisUser = userRepository.findById(userId);
-        if (!thisUser.isPresent()){
-            return false;
-        }
+        User thisUser = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
 
         /* ========================================================================
          * 2. PointLogDto 생성
@@ -71,7 +70,7 @@ public class PointLogService {
          * 3. pointLogDto entity 변환 및 데이터 취합 & T_POINT_LOG 테이블에 INSERT
          * ======================================================================== */
         PointLog pointLog = pointLogDto.toEntity();
-        pointLog.setUser(thisUser.get());               // user
+        pointLog.setUser(thisUser);               // user
         pointLogRepository.save(pointLog);
 
         return true;
@@ -90,10 +89,8 @@ public class PointLogService {
         /* ========================================================================
          * 1. 계정 존재 확인 및 셋팅
          * ======================================================================== */
-        Optional<User> thisUser = userRepository.findById(userId);
-        if (!thisUser.isPresent()){
-            return false;
-        }
+        User thisUser = userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
 
         /* ========================================================================
          * 2. PointLogDto 생성
@@ -107,7 +104,7 @@ public class PointLogService {
          * 3. pointLogDto entity 변환 및 데이터 취합 & T_POINT_LOG 테이블에 INSERT
          * ======================================================================== */
         PointLog pointLog = pointLogDto.toEntity();
-        pointLog.setUser(thisUser.get());               // user
+        pointLog.setUser(thisUser);               // user
         pointLogRepository.save(pointLog);
 
         return true;

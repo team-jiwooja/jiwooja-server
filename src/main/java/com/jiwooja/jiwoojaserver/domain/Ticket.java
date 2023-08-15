@@ -1,13 +1,13 @@
 package com.jiwooja.jiwoojaserver.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Table(name="TICKET")
@@ -28,39 +28,31 @@ public class Ticket {
             ,referencedColumnName="USER_ID")
     private User user;
 
-    @NotNull
-    @Column(name = "TRAIN_NUM")
+    @Column(name = "TRAIN_NUM", nullable = false)
     private Long trainNum;
 
-    @NotNull
-    @Column(name = "TRAIN_CODE")
+    @Column(name = "TRAIN_CODE", nullable = false)
     private Long trainCode;
 
-    @NotNull
-    @Column(name = "SEAT_CODE")
+    @Column(name = "SEAT_CODE", nullable = false)
     private Long seatCode;
     // END - FK
 
 
-    @NotNull
-    @Column(name = "TICKET_NUM")
+    @Column(name = "TICKET_NUM", nullable = false)
     private String ticketNum;       // 예매번호(티켓번호)
 
-    @NotNull
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private int price;              // 결제 금액
 
-    @NotNull
-    @Column(name = "PAY_SEP")
+    @Column(name = "PAY_SEP", nullable = false)
     private String paySep;          // 결제 구분 (A: 포인트 결제, B: 현장결제)
 
-    @NotNull
-    @Column(name = "REFUND_YN")
+    @Column(name = "REFUND_YN", nullable = false)
     @ColumnDefault("'N'")
     private String refundYn = "N";        // 환불여부 (default 값 = N)
 
-    @NotNull
-    @Column(name = "INP_DATE")
+    @Column(name = "INP_DATE", nullable = false)
     private LocalDateTime inpDate;  // 입력일(예매일)
 
     @Column(name = "MOD_DATE")
@@ -83,5 +75,37 @@ public class Ticket {
     @PreUpdate
     public void preUpdate(){
         this.modDate = LocalDateTime.now();
+    }
+
+    /* ===========================================================================
+     * Builder
+     * =========================================================================== */
+    @Builder
+    public Ticket(
+            User user, Long trainNum, Long trainCode,
+            Long seatCode, String ticketNum, int price,
+            String paySep, String refundYn){
+        this.user = user;
+        this.trainNum = trainNum;
+        this.trainCode = trainCode;
+        this.seatCode = seatCode;
+        this.ticketNum = ticketNum;
+        this.price = price;
+        this.paySep = paySep;
+        this.refundYn = refundYn;
+    }
+
+    /* ===========================================================================
+     * FK setting
+     * =========================================================================== */
+    public void setUser(User user){
+        this.user = user;
+    }
+
+    /* ===========================================================================
+     * update and delete
+     * =========================================================================== */
+    public void refundTicket() {
+        this.refundYn = "Y";
     }
 }

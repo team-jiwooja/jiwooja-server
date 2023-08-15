@@ -1,7 +1,6 @@
 package com.jiwooja.jiwoojaserver.dto;
 
 import com.jiwooja.jiwoojaserver.domain.Ticket;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

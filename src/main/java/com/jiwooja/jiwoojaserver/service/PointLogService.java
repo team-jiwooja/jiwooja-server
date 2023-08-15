@@ -1,13 +1,13 @@
-package com.jiwooja.jiwoojaserver.pointLog;
+package com.jiwooja.jiwoojaserver.service;
 
 import com.jiwooja.jiwoojaserver.domain.Ticket;
 import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogRepository;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogTicket;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogTicketRepository;
-import com.jiwooja.jiwoojaserver.pointLog.dto.PointLogDto;
+import com.jiwooja.jiwoojaserver.domain.PointLog;
+import com.jiwooja.jiwoojaserver.repository.PointLogRepository;
+import com.jiwooja.jiwoojaserver.domain.PointLogTicket;
+import com.jiwooja.jiwoojaserver.repository.PointLogTicketRepository;
+import com.jiwooja.jiwoojaserver.dto.PointLogDto;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

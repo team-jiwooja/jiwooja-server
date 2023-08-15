@@ -1,6 +1,5 @@
 package com.jiwooja.jiwoojaserver.domain;
 
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import lombok.*;
 
 import javax.persistence.*;

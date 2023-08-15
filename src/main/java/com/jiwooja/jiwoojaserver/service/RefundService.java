@@ -1,9 +1,9 @@
-package com.jiwooja.jiwoojaserver.refund;
+package com.jiwooja.jiwoojaserver.service;
 
 import com.jiwooja.jiwoojaserver.domain.Ticket;
 import com.jiwooja.jiwoojaserver.dto.TicketDto;
-import com.jiwooja.jiwoojaserver.pointLog.PointLogService;
-import com.jiwooja.jiwoojaserver.pointLog.dto.PointLogDto;
+import com.jiwooja.jiwoojaserver.service.PointLogService;
+import com.jiwooja.jiwoojaserver.dto.PointLogDto;
 import com.jiwooja.jiwoojaserver.repository.TicketRepository;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import com.jiwooja.jiwoojaserver.service.UserService;

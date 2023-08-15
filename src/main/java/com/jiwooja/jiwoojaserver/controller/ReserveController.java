@@ -1,6 +1,7 @@
-package com.jiwooja.jiwoojaserver.reserve;
+package com.jiwooja.jiwoojaserver.controller;
 
 import com.jiwooja.jiwoojaserver.dto.TicketDto;
+import com.jiwooja.jiwoojaserver.service.ReserveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

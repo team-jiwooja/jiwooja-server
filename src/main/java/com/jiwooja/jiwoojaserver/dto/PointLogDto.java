@@ -1,6 +1,6 @@
-package com.jiwooja.jiwoojaserver.pointLog.dto;
+package com.jiwooja.jiwoojaserver.dto;
 
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
+import com.jiwooja.jiwoojaserver.domain.PointLog;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

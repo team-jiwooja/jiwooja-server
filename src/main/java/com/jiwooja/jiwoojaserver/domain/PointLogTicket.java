@@ -1,6 +1,5 @@
-package com.jiwooja.jiwoojaserver.pointLog.domain;
+package com.jiwooja.jiwoojaserver.domain;
 
-import com.jiwooja.jiwoojaserver.domain.Ticket;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,8 +1,6 @@
 package com.jiwooja.jiwoojaserver.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jiwooja.jiwoojaserver.dto.PointDto;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

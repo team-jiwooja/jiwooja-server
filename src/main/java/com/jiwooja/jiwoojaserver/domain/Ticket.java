@@ -1,7 +1,5 @@
 package com.jiwooja.jiwoojaserver.domain;
 
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLog;
-import com.jiwooja.jiwoojaserver.pointLog.domain.PointLogTicket;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

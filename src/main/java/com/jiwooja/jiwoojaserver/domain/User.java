@@ -33,6 +33,8 @@ public class User {
     @Column(name = "TOKEN", length = 200)
     private String token;
 
+    private Integer pointsTotal;
+
     @ManyToMany
     @JoinTable(
             name = "USER_AUTHORITY",
@@ -41,9 +43,22 @@ public class User {
     private Set<Authority> authorities;
 
 
-    @OneToMany(mappedBy = "J_USER")
+    @OneToMany(mappedBy = "user")
     private List<PointLog> pointLogs = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Point> points = new ArrayList<>();
+
+    public void setPoints(List<Point> points) {
+        this.points = points;
+        updateTotalPoints();
+    }
+
+    public void updateTotalPoints() {
+        int totalPoints = this.points.stream()
+                .mapToInt(Point::getPurchasePrice)
+                .sum();
+        this.pointsTotal = totalPoints;
+    }
+
 }

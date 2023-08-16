@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
                 .antMatchers(
-                        "/swagger-resources/**", "/swagger-ui.html", "/swagger/**"
+                        "/swagger-resources/**", "/swagger-ui.html", "/swagger/**", "/resources/**"
                 );
     }
 
@@ -90,6 +90,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signout").permitAll()
                 .antMatchers("/user/create").permitAll()
+                .antMatchers("/JIUJA/**").permitAll()
+
+                .mvcMatchers("/resources/**").permitAll()
                 .anyRequest().authenticated()
 
                 .and()

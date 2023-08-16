@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/style.css}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUITE/fonts/static/woff2/SUITE.css">
+
+    <title>로그인</title>
+</head>
+<body>
+    <header class="hd-container">
+        <ul>
+            <li><a href="">홈버튼</a></li>
+            <!-- <li><a href="">로그인</a></li>
+            <li><a href="">회원가입</a></li>
+            <li><a href="">마이페이지</a></li> -->
+        </ul>
+    </header>
+    <nav class="nav-container">
+        <ul>
+            <li>예매하ss기</li>
+            <!-- <li>조회/ 환불하기</li>
+            <li>이용안내</li>
+            <li>고객안내</li> -->
+        </ul>
+    </nav>
+    <section class="sec-container">
+        <article>
+            <h2 class="login-name">로그인</h2>
+            <div class="login">
+                <p class="info">회원 정보 입력</p>
+                <div>
+                    <div class="inset">
+                        <form action="" method="post">
+                            <p class="insert">
+                                <label for="username">아이디 </label>
+                                <input id="username" type="text" name="id">
+                            
+                            </p>                
+                        
+                            <p class="insert">
+                                <label for="pwd_txt">비밀번호 </label> 
+                                <input  id="pwd_txt" type="password" name="pwd">
+                            </p>    
+                            
+                            <input class="submit-btn" type="submit" value="로그인">
+                        </form>
+                        
+                    </div>
+                                  
+                    <ul>
+                        <li>
+                            <p class="find"><a href="">아이디 찾기 </a>/<a href=""> 비밀번호 찾기</a></p>
+                        </li>
+                        <li><a href="">회원가입 하기 ></a></li>
+                    </ul>
+                </div> 
+            </div>
+        </article>
+    </section>
+    <footer>
+        <p>copy</p>
+    </footer>
+</body>
+</html>

@@ -49,10 +49,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring()
-                .antMatchers(
-                        "/swagger-resources/**", "/swagger-ui.html", "/swagger/**", "/resources/**"
-                );
+        web.ignoring().antMatchers("/resources/static/css/**, /resources/static/js/**, /resources/static/img, *.ico");
+
+        web.ignoring().antMatchers(
+                        "/swagger-resources/**", "/swagger-ui.html", "/swagger/**");
     }
 
 
@@ -90,9 +90,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/signout").permitAll()
                 .antMatchers("/user/create").permitAll()
+                .antMatchers("/user/usernameChecker").permitAll()
                 .antMatchers("/JIUJA/**").permitAll()
 
+
+                .antMatchers("/swagger-ui/**", "/swagger-resources/**").permitAll()
+
+                // view 페이지 관련
                 .mvcMatchers("/resources/**").permitAll()
+
                 .anyRequest().authenticated()
 
                 .and()

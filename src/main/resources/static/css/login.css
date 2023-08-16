@@ -44,7 +44,7 @@ section {
     height:  75%;
     background-color: #F5F5F5;
     border: 1px solid #F5F5F5;
-    padding-top: 50px;
+    padding: 50px;
 }
 
 .login-name {
@@ -57,17 +57,18 @@ section {
 .info {
     padding-left: 10px;
     font-size: 20px;
-    width: 223;
-    height: 50;
+    font-weight: 400;
 }
 
 .login {
     width: 450px;
     padding-left: 10px;
-    border: 2px solid black;
     border-radius: 10px;
     background-color: white;
     margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #1A1F8A;
+
 }
 
 .inset {
@@ -79,8 +80,13 @@ section {
     padding-top: 2px;
 }
 
+.insert > label {
+    font-weight: 700;
+}
+
  #username, #pwd_txt{
-       padding: 10px;
+    padding: 10px;
+    border: 1px solid #1A1F8A;
 }
 
 #username {
@@ -91,9 +97,35 @@ section {
     width: 270px;
     height: 30px;
     text-align: center;
-    background-color: #1A1F8A;
+    background-color: #276FFF;
     color: white;
+    border: 1px solid #276FFF;
 }
 
+.find {
+    display: flex;
+}
 
+.membership {
+    margin-left: 60px;
+}
 
+.notice {
+    display: flex;
+    color: #838383;
+}
+
+.notice > p {
+    margin-left: 200px;
+}
+
+.notice > button {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    background-color: #276FFF;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+}

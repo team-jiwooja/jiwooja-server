@@ -1,0 +1,318 @@
+/* @media only screen and (min-width: 1024px) {
+
+}*/
+* {
+  box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #5F5F5F;
+}
+/* a:hover{
+    text-decoration: underline;
+} */
+
+#wrap{
+    /* max-width: 1440px;
+    max-height: 1024px; */
+    width: 100%;
+    /* background-color: bisque; */
+}
+
+/* header */
+    #header{
+        width: 1440px;
+        height: 50px;
+        background-color: rgb(255, 255, 255);
+        margin: 0 auto;
+        /* border: 3px solid #000000; */
+    }
+    #header::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .header-menu {
+        float: right;
+        margin-right: 70px;
+        margin-top: 12px;
+    }
+
+    .header-btn{
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .header-btn > li {
+        float: left;
+        margin-left: 40px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .header-btn li:hover a {
+        color:#000dff;
+    }
+    a:link, a:visited{
+        text-decoration: none;
+        color:  #5F5F5F;
+    }
+
+
+/* nav */
+    #nav{
+        /* width: 1440px; */
+        width: 1440px;
+        height: 120px;
+        background-color: #276FFF;
+        margin: 0 auto;
+        border: 3px solid #555555;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+    }
+    #nav::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    #logo{
+        float: left;
+        width: 240px;
+        height: 120px;
+        background-image: url(/resources/img/logo.png);
+        background-position: center;
+        overflow: hidden;
+        margin-left: 30px;
+        /* background-color: #ffd8d8; */
+    }
+    #nav-menu {
+
+        margin-top: 30px;
+        margin-right: 270px;
+        padding-left: 40px;
+        text-align: center;
+      }
+    #nav-menu ul {
+      font-size: 0;
+      list-style-type: none;
+
+    }
+
+    .rep-menu a{
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+
+    }
+    .detail-menu a{
+        color: #276FFF;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #nav-menu ul li {
+      font-family: "Open Sans", sans-serif;
+
+      font-size: 30px;
+      font-weight: 400;
+
+      display: inline-block;
+      padding: 15px;
+      position: relative;
+    }
+    #nav-menu ul li ul {
+      display: none;
+    }
+
+    /* 상세메뉴의  값*/
+    #nav-menu ul li:hover ul {
+      display: block;
+      margin-top: 15px;
+      width: 230px;
+      background-color: #ffffff;
+
+      left: 0;
+      position: absolute;
+    }
+
+    /* 대표메뉴 hover했을 때 상세메뉴 배경색 바꾸기*/
+    #nav-menu ul li:hover ul li {
+      display: block;
+      background-color: #ffffff;
+    }
+    #nav-menu ul li:hover {
+        cursor: pointer;
+    }
+    #nav-menu ul li:hover a {
+        color:#1A1F8A;
+    }
+    #nav-menu ul li:hover ul li:hover {
+        margin: 0 auto;
+        background-color: #044BD9;
+    }
+    #nav-menu ul li:hover ul li:hover a {
+        color: #ffffff;
+    }
+    #menu-line{
+        width:85%;
+
+        margin: 0 auto;
+    }
+
+
+/* section */
+    .nav-sectionline{
+        width: 1440px;
+        border: 0;
+        height: 7px;
+        background-color: #F29F05;
+    }
+
+    #section{
+        width: 1440px;
+        height: 750px;
+        margin: 0 auto;
+
+    }
+
+        .container-mainImg{
+
+            margin: 0 auto;
+            width: 1440px;
+            height: 500px;
+            /* background-color: rgb(184, 184, 184); */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        /* .container-mainImg a{
+            
+        } */
+
+        .container-mainContant{
+            /* float: right; */
+            height: 250px;
+            background-color: #ffffff;
+            
+        }
+        .bookingLine{
+            width: 350px;
+            height: 184px;
+            margin-top: 15px;
+            margin-left: 150px;
+            border-radius: 10px 0px 0px 10px;
+            background:linear-gradient(to bottom,#276FFF,#7AA6FE);
+            box-shadow: 10px 10px 5px #1A1F8A;
+            border: 5px solid #7AA6FE;
+            float: left;
+        }
+        .bookingLine p{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .text{
+            padding-top: 50px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .boldText{
+            padding-top: 10px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bolder;
+            text-shadow: 5px 5px #276FFF;
+        }
+
+        .button{
+            border: 0;
+            float: left;
+            width: 788px;
+            height: 190px;
+            /* border: 2px solid #111; */
+            margin-top: 21px;
+
+            box-shadow:5px 5px 3px #ccc ;
+        }
+        .trainButton{ 
+            background-image: url(/resources/img/train.png);
+            width: 190px;
+            height: 190px;
+            margin-left: 10px;
+            border: 5px solid #d0ffb8;
+            background-color: #A0ED7A;
+        }
+        .busButton{
+            background-image: url(/resources/img/bus.png);
+            width: 190px;
+            height: 190px;
+
+            border: 5px solid #ffeec8;
+            background-color: #FFDF96;
+        }
+        .airplaneButton{
+            background-image: url(/resources/img/airplane.png);
+            width: 190px;
+            height: 190px;
+            border: 5px solid #ffd8bd;
+            background-color: #FFC296;
+        }
+        .shipButton{
+            background-image: url(/resources/img/ship.png);
+            width: 190px;
+            height: 190px;
+            border: 5px solid #c9fff7;
+            background-color: #97FFF0;
+        }
+        .buttonText{
+            
+            margin-bottom: 50px;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px #5F5F5F;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        
+/* footer */
+    #footer{
+        width: 1440px;
+        height: 104px;
+        /* background-color: rgb(253, 255, 193); */
+        margin: 0 auto;
+
+        /* float: left; */
+    }
+    .outline{
+        border: 0;
+        height: 8px;
+        background-color: #276FFF;
+    }
+    .inline{
+        border: 0;
+        height: 4px;
+        background-color: #276FFF;
+        margin-top: 5px;
+    }
+    #logo2{
+        float: left;
+        width: 104px;
+        height: 104px;
+        background-image: url(/resources/img/logo2.png);
+        background-position: center;
+        overflow: hidden;
+        margin-left: 30px;
+
+    }
+    .footerText{
+        float: left;
+        /* border: 1px solid #000; */
+        margin-left: 40px;
+        margin-top: 40px ;
+    }

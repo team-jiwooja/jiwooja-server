@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/point/popupPointChargeUser.css}">
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+    <title>포인트 충전 - 대리 입금</title>
+</head>
+<body>
+    <nav class="container">
+        <h1 class="big-title">포인트 충전</h1>
+        <img class="logo" src="./지우자1.png" alt="">
+    </nav>
+    <section>
+        <p class="title">대리 입금</p>
+        <article class="container">
+            <form action="" method="post">
+                <div class="info">
+                    <p>입금자명<span>*</span> <input type="text" name="name" id="name" placeholder="홍길동"></p>
+                    <p>전화번호<span>*</span> <input type="tel" name="telv" id="telv" placeholder="01012345678"></p>
+                    <p>이메일 <input type="email" name="emailv" id="emailv" placeholder="jiuja1234@jiuja.com"></p>
+                </div>
+                
+                <ul class="notice">
+                    <li>잠깐!</li>
+                    <li>확인 버튼을 누른 후 영업일 기준 10일 이내 입금이 확인 되어야 합니다.</li>
+                    <li>입력하신 전화번호로 대리 입금자에게 안내 메세지가 발송됩니다. 대리 입금자에게 미리 알려 스팸 메세지로 
+                        오인받지 않도록 안내해 주세요.</li>
+                    <li>입력하신 정보가 정확한지 확인해주세요. 입력하신 정보가 부정확 하여 일어난 피해는 책임 지지 않으며
+                        만약 잘못 입력된 정보를 수정하고 싶으시다면 고객 안내> 문의 넣기를 통해 문의해 주세요.</li>
+                </ul>
+                <input class="submit-btn" type="submit" value="확인" onclick="javascript:self.close();"> <!-- 이게 맞는지 모르겠음 -->
+            </form>
+            
+            
+       </article>
+    </section>
+</body>
+</html>

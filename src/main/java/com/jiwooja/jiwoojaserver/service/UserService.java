@@ -8,12 +8,15 @@ import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
+import java.util.Optional;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -64,6 +67,19 @@ public class UserService {
         User user = userRepository.findByUsername(userName)
                 .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
         return user.getUserId();
+    }
+
+    public boolean usernameChecker(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+        return !user.isPresent();
+    }
+
+    /**
+     * 로그인 여부 판별
+     */
+    public Boolean loginTf(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
 }

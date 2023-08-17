@@ -18,6 +18,7 @@ public class SubwayController {
     }
 
     @GetMapping("/subway/code/{stationName}")
+    //역 이름 반환
     public String getSubwayCode(@PathVariable String stationName) {
         return subwayCodeService.getSubwayCode(stationName);
     }

@@ -16,4 +16,5 @@ public class JiwoojaServerApplication {
     public RestTemplate template() {
         return new RestTemplate();
     }
+    //해커톤 끝났으면 좋겠어요22
 }

@@ -24,10 +24,6 @@ public class TicketDTO {
     private int price;
     private String nickname;
 
-    public TicketDTO() {
-
-    }
-
     public TicketDTO(String ticketNum, String trainName, int trainNum, int date,
                      String startingSubway, String endingSubway, String seatName, int price, String nickname) {
         this.ticketNum = ticketNum;

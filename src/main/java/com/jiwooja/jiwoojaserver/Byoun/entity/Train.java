@@ -9,24 +9,29 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "train")
+@Table(name = "train_table")
 @Getter
 @Setter
 public class Train {
-
     @Id
     @Column(name = "train_code")
-    private String trainCode;
+    //열차 train_num + 호차 번호(칸 번호)
+    private int trainCode;
 
     @Column(name = "train_num")
-    private String trainNum;
+    //ex) 420번 ktx
+    private int trainNum;
 
     @Column(name = "train_ho_num")
+    //ex) 1호차~10호차(열차 한 칸)`
+
     private Integer trainHoNum;
 
     @Column(name = "train_ho_type")
+    //일반실, 특별실
     private String trainHoType;
 
     @Column(name = "train_seat_qty")
+    //좌석수
     private Integer trainSeatQty;
 }

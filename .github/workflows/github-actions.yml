@@ -27,7 +27,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'
+        distribu가tion: 'temurin'
 
     # gradle setup & build
     - name: grant execute permission for gradlew

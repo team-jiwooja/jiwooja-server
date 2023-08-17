@@ -25,15 +25,16 @@ public class TicketDAO {
                 + " WHERE mem.nickname = ?";
 
         return jdbcTemplate.query(query, (rs, rowNum) -> new TicketDTO(
-                rs.getString(1),
-                rs.getString(2),
-                rs.getInt(3),
-                rs.getInt(4),
-                rs.getString(5),
-                rs.getString(6),
-                rs.getString(7),
-                rs.getInt(8),
-                rs.getString(9)  // nickname 추가
+                rs.getInt(1), //ticketNum
+                rs.getString(2), //trainName
+                rs.getInt(3), // trainNum
+                rs.getInt(4), // trainHoNum
+                rs.getInt(5), // date
+                rs.getString(6), // startingSubway
+                rs.getString(7), // endingSubway
+                rs.getString(8), // seatName
+                rs.getInt(9), // price
+                rs.getString(10) // nickname 추가
         ), nickname);
     }
 
@@ -57,15 +58,16 @@ public class TicketDAO {
                 + " WHERE mem.nickname = ?";
 
         return jdbcTemplate.query(query, (rs, rowNum) -> new TicketDTO(
-                rs.getString(1),
-                rs.getString(2),
-                rs.getInt(3),
-                rs.getInt(4),
-                rs.getString(5),
-                rs.getString(6),
-                rs.getString(7),
-                rs.getInt(8),
-                rs.getString(9)  // nickname 추가
+                rs.getInt(1), //ticketNum
+                rs.getString(2), //trainName
+                rs.getInt(3), // trainNum
+                rs.getInt(4), // trainHoNum
+                rs.getInt(5), // date
+                rs.getString(6), // startingSubway
+                rs.getString(7), // endingSubway
+                rs.getString(8), // seatName
+                rs.getInt(9), // price
+                rs.getString(10) // nickname 추가
         ), nickname);
     }
 

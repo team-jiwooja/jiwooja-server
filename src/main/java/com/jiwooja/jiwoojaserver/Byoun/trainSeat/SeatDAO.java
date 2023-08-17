@@ -44,7 +44,7 @@ public class SeatDAO {
         return allBookedSeats;
     }*/
 
-    //예약된 좌석 정보를 list로 train_code와 train_code을 목록으로 가져옴
+    //예약된 좌석 정보를 list로 train_code와 seat_name을 목록으로 가져옴
     public List<List<String>> getBookedSeats(String trainType, String trainDate, String startingSubway,
                                              String endingSubway, String startTime, String endTime) {
 
@@ -71,7 +71,7 @@ public class SeatDAO {
 
             int hoNum = Integer.parseInt(trainHoNum);
 
-            while (allBookedSeats.size() < hoNum) {
+            while (allBookedSeats.size() < 10) {
                 allBookedSeats.add(new ArrayList<>());
             }
             allBookedSeats.get(hoNum - 1).add(seatName);

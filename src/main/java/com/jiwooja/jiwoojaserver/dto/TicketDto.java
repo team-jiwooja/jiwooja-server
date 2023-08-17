@@ -10,9 +10,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class TicketDto {
     private Long ticketId;
-
     private Long userId;
     private Long trainNum;
+    private Long trainHoNum;
+    private String seatName;
     private Long trainCode;
     private Long seatCode;
 
@@ -29,10 +30,11 @@ public class TicketDto {
      * =========================================================================== */
     public TicketDto(Ticket entity){
         this.ticketId = entity.getTicketId();
-
         this.userId = entity.getUser().getUserId();
-
         this.trainNum = entity.getTrainNum();
+        this.trainHoNum = entity.getTrainHoNum();
+        this.seatName = entity.getSeatName();
+
 //        this.trainType = entity.getTrainApi().getTrainType();
 //        this.trainNumName = entity.getTrainApi().getTrainNumName();
 //        this.trainDate = entity.getTrainApi().getTrainDate();
@@ -40,11 +42,6 @@ public class TicketDto {
 //        this.endingSubway = entity.getTrainApi().getEndingSubway();
 //        this.startTime = entity.getTrainApi().getStartTime();
 //        this.endTime = entity.getTrainApi().getEndTime();
-
-        this.trainCode = entity.getTrainCode();
-//        this.trainHoNum = entity.getTrainCode().getTrainHoNum();
-
-        this.seatCode = entity.getSeatCode();
 //        this.seatName = entity.getTrainSeat().getSeatName();
 
         this.ticketNum = entity.getTicketNum();
@@ -62,8 +59,8 @@ public class TicketDto {
     public Ticket toEntity(){
         return Ticket.builder()
                 .trainNum(trainNum)
-                .trainCode(trainCode)
-                .seatCode(seatCode)
+                .trainHoNum(trainHoNum)
+                .seatName(seatName)
                 .ticketNum(ticketNum)
                 .price(price)
                 .paySep(paySep)

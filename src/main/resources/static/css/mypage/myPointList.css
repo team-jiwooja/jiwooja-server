@@ -18,6 +18,12 @@ a:link, a:visited {
     text-decoration: none;
 }
 
+/* 수정 */
+.big-title > a:link, a:visited {
+    color: #1A1F8A;
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
 }
@@ -29,7 +35,7 @@ ul {
 }
 
 .nav-container {
-    height: 15%;
+    height: 15%; 
     background-color: orange;
     border: 1px solid orange;
 }
@@ -51,44 +57,12 @@ footer{
     margin: 30px 0;
 }
 
-.name-info {
-    font-size: 40px;
-    font-weight: 400;
+/* 수정한듯(확실하지 않아요) */
+.big-title span {
+    font-size: 48px;
 }
 
-.id-info, .tel-info {
-    color: #5F5F5F;
-    font-size: 32px;
-    font-weight: 400;
-    display: inline;
-}
-
-.name-info {
-    display: inline;
-}
-
-.id-info{
-    margin-left: 20px;
-}
-
-/* 추가 */
-.tel-info {
-    margin-left: 20px;
-}
-
-.first-container {
-    border-bottom: 2px solid #1A1F8A;
-    width: 1084px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.edit {
-    font-size: 32px;
-    padding-left: 150px;
-}
-
-.second-container, .third-container {
+.first-container, .second-container {
     border-radius: 10px;
     border: 1px solid #1A1F8A;
     background: #FFF;
@@ -98,7 +72,7 @@ footer{
 }
 
 /* 수정 */
-.second-in-container {
+.first-in-container {
     height: 100px;
     display: flex;
     align-items: center;
@@ -106,7 +80,7 @@ footer{
 }
 
 /* 수정 */
- button {
+button {
     width: 147px;
     height: 45px;
     margin-left: 20px;
@@ -115,7 +89,7 @@ footer{
 
 /* .btn삭제 */
 
-.usehistory-btn {
+.refund-btn {
     border-radius: 10px;
     border: 2px solid #276FFF;
     background: #FFF;
@@ -128,8 +102,9 @@ footer{
     border: 1px solid #276FFF;
 }
 
-.third-container {
-    height: 237px;
+/* 수정 */
+.second-container {
+    height: 430px;
     margin-bottom: 20px;
 }
 
@@ -146,46 +121,69 @@ footer{
     font-weight: 700;
 }
 
-.third-container .small-title {
+.second-container .small-title {
     margin: 10px;
 }
 
-/* 추가 */
-table {
-    width: 950px;
-    height: 120px;
-    margin: 10px auto;
-}
 
-/* 추가 */
-table {
-    border-top: 1px solid #444444;
+/* 밑 부분 다 추가   */
+.scrolltable{
     border-collapse: collapse;
+    border: 1px solid #888;
+}
+.scrolltable thead {
+    display:block;
+    background: #1A1F8A;
+    color:#fff;
+}
+.scrolltable tbody{
+    display:block;
+    overflow:auto;
+    height: 312px;
+    width:100%;
+}
+/* 행 장식 */
+.scrolltable th, .scrolltable td {
+  padding: 5px;
+  text-align: center;
+  font-size: 32px;
+
 }
 
-/* 추가 */
-td {
-    border-bottom: 1px solid #444444;
-    border-left: 1px solid #444444;
-    padding: 5px;
-    text-align: center;
-    font-size: 25px;
+.scrolltable th:nth-child(1), .scrolltable td:nth-child(1){
+    width: 150px;
 }
 
-/* 추가 */
-td:first-child {
-    border-left: none;
+.scrolltable th:nth-child(2), .scrolltable td:nth-child(2){
+    width: 270px;
 }
 
-.color {
+.scrolltable th:nth-child(3), .scrolltable td:nth-child(3){
+    width: 300px;
+}
+
+.scrolltable th:nth-child(4), .scrolltable td:nth-child(4){
+    width: 270px;
+}
+
+
+.scrolltable tr {
+    height: 56px;
+} 
+
+.scrolltable td {
+    border:1px solid #555;
+}
+
+/* 충전, 사용 색상 */
+.colGreen {
+    background: #C1FFB7;
+}
+
+.colYellow {
     background: #FFDC9A;
-    color: #1A1F8A;
 }
 
-/* 추가 */
-.see-more {
-    font-size: 24px;
-    font-weight: 700;
-    margin-left: 880px;
-    margin-top: 10px;
+.colRed {
+    background: #FFC3BD;
 }

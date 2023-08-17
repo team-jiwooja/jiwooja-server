@@ -26,7 +26,7 @@ public class PointLog {
     private User user;
 
     @Column(name="USE_SEP")
-    private String useSep;
+    private String useSep;  // (C:충전 / U:사용 / R:환불)
 
     @Column(name="POINT")
     private int point;

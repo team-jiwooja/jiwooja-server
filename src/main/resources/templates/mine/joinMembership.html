@@ -64,7 +64,7 @@
         // 이름 값 변경 시
         function changeUsername(){
             checkUsername = false;
-            $('#usernameChecker').css('display','block');
+            $('#usernameChecker').show();
         }
 
         // 아이디 중복 확인
@@ -87,7 +87,7 @@
                     if(response){
                         alert('사용가능한 아이디 입니다.');
                         checkUsername = true;
-                        $('#usernameChecker').css('display','none');
+                        $('#usernameChecker').hide();
                         return;
                     }else{
                         alert('중복된 아이디가 있습니다. 다른 아이디를 사용해주세요.');

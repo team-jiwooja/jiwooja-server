@@ -4,10 +4,10 @@
 
 body {
     font-family: 'SUITE', sans-serif;
+    margin: 0 auto;
 }
 
 html, body {
-    margin: 0;
     padding: 0;
     height: 100%;
     overflow: hidden;
@@ -35,7 +35,7 @@ ul {
 }
 
 .nav-container {
-    height: 15%; 
+    height: 15%;
     background-color: orange;
     border: 1px solid orange;
 }
@@ -62,7 +62,7 @@ section {
 
 .login {
     width: 450px;
-    height: 320px;
+    height: 220px; /* 높이 바뀌었어요 */
     padding-left: 10px;
     border-radius: 10px;
     border: 1px solid #1A1F8A;
@@ -80,13 +80,15 @@ section {
     padding-right: 77px;
 }
 
- #username, #pwd_txt, #birth, #phoneNum, #email{
+/* 이메일, 생년월일 뺐어요 */
+#username, #pwd_txt, #phoneNum {
     padding: 10px;
     border: 1px solid #1A1F8A;
     background: #FFF;
 }
 
-#username, #email {
+/* 이메일 뺐어요 */
+#username {
     margin-left: 17px;
 }
 
@@ -97,12 +99,16 @@ section {
     background: #276FFF;
 }
 
+.btn {
+    padding-left: 300px;
+}
+
 .join-btn {
+    display: block;
+    margin: 10px auto;
     width: 150px;
     height: 40px;
     text-align: center;
-    margin-left: 500px;
-    margin-top: 10px;
     border-radius: 5px;
     background: #276FFF;
     color: #FFF;

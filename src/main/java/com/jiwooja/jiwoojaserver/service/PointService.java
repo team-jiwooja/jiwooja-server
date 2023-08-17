@@ -5,14 +5,12 @@ import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.dto.PointDto;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.exception.PointNotFoundException;
-import com.jiwooja.jiwoojaserver.repository.PointLogRepository;
 import com.jiwooja.jiwoojaserver.repository.PointRepository;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service

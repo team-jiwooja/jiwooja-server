@@ -22,6 +22,21 @@ public class AuthPageController {
         return "/mypage/mypage";
     }
 
+    /* 내 정보 > 포인트 페이지 */
+    @RequestMapping(value = "/myPointList")
+    public String openMyPointList(Model model) {
+        model.addAttribute("pointsTotal", userService.getUserInfo().getPointsTotal());
+        return "/mypage/myPointList";
+    }
+
+    /* 내 정보 > 예매내역 페이지 */
+    @RequestMapping(value = "/myTicketList")
+    public String openMyTicketList(Model model) {
+        model.addAttribute("infoBasic", userService.getUserInfo());
+        return "/mypage/myTicketList";
+    }
+
+
 
     /* =============================================================================
      * 팝업 페이지 모음

@@ -31,7 +31,6 @@
             <h1 class="big-title">내 정보</h1>
             <div class="first-container">
                 <div class="content">
-                    <!-- 정보 백에서 가져와야함 -->
                     <h2 class="name-info"><span id="username"></span>님</h2>
                     <p class="tel-info">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
@@ -46,13 +45,11 @@
             
             <div class="second-container">
                 <p class="small-title">포인트</p>
-                <!-- 백에서 얻어와야하는 데이터 -->
-
                 <div class="second-in-container">
                     <p class="data" id="pointsTotal"></p>
                     <p style="font-size: 32px;">포인트보유중</p>
                     <div class="btn">
-                        <button class="usehistory-btn">사용내역</button>
+                        <button class="usehistory-btn" id="pointList">사용내역</button>
                         <button class="charge-btn" id="chargePoint">충전하기</button>
                     </div>
                 </div>
@@ -65,25 +62,25 @@
                 <table>
                     <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>ktx</td>
+                        <td>성인 1매</td>
+                        <td>2호차 a2</td>
+                        <td>서울역 12:40 -> 부산역 16:20</td>
+                        <td>지우자포인트(결제 완료)</td>
+                        <td class="color">발권</td>
                     </tr>
 
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>ktx</td>
+                        <td>성인 1매</td>
+                        <td>2호차 a2</td>
+                        <td>서울역 12:40 -> 부산역 16:20</td>
+                        <td>지우자포인트(결제 완료)</td>
+                        <td class="color">발권</td>
                     </tr>
                     </tbody>
                 </table>
-                <p class="see-more"><a href="">더 보기 ></a></p>
+                <p class="see-more"><a href="/mine/JIUJA/myTicketList">더 보기 ></a></p>
             </div>
         </article>
     </section>
@@ -115,6 +112,11 @@
 
     // 페이지 이벤트 모음
     function page_event(){
+        // 포인트 리스트 페이지 이동
+        $('#pointList').on('click',function(){
+            location.href="/mine/JIUJA/myPointList";
+        });
+
         // 포인트 충전 팝업 열기
         $('#chargePoint').on('click',function(){
             window.open("/mine/JIUJA/popup/pointCharge/main", "포인트 충전", "width=885, height=586, location=no, status=no, toolbars=no, scrollbars=no, resizable=no, overflow:hidden, top:100px, left:100px");

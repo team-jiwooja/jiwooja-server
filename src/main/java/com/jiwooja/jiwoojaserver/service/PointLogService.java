@@ -1,15 +1,22 @@
 package com.jiwooja.jiwoojaserver.service;
 
 import com.jiwooja.jiwoojaserver.domain.*;
+import com.jiwooja.jiwoojaserver.dto.Paging;
+import com.jiwooja.jiwoojaserver.dto.PointDto;
+import com.jiwooja.jiwoojaserver.dto.TicketDto;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
-import com.jiwooja.jiwoojaserver.repository.PointLogPointRepository;
-import com.jiwooja.jiwoojaserver.repository.PointLogRepository;
-import com.jiwooja.jiwoojaserver.repository.PointLogTicketRepository;
+import com.jiwooja.jiwoojaserver.repository.*;
 import com.jiwooja.jiwoojaserver.dto.PointLogDto;
-import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PointLogService {
@@ -20,6 +27,9 @@ public class PointLogService {
     private PointLogTicketRepository pointLogTicketRepository;
     @Autowired
     private PointLogPointRepository pointLogPointRepository;
+
+    @Autowired
+    private PointRepository pointRepository;
     @Autowired
     private UserRepository userRepository;
 
@@ -130,4 +140,42 @@ public class PointLogService {
         return true;
     }
 
+    /**
+     * 포인트 로그 리스트
+     * @return List<PointLogDto>
+     */
+    public List<PointLogDto> getPointLogList(Paging paging){
+        org.springframework.security.core.userdetails.User userSecurity = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findByUsername(userSecurity.getUsername())
+                .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
+
+        Pageable limitOneHundred = PageRequest.of(paging.getLimitStart(), paging.getLimitEnd(), Sort.by("pointLogId").descending());
+        List<PointLog> pointLogList = pointLogRepository.findAllByUser_UserId(user.getUserId(), limitOneHundred);
+
+        List<PointLogDto> result = new ArrayList<>();
+        for (PointLog e : pointLogList) {
+            PointLogDto pointLogDto = new PointLogDto(e);
+
+            if ("U".equals(e.getUseSep()) || "R".equals(e.getUseSep())){
+                List<PointLogTicket> ticketList = e.getPointLogTickets();
+                if (ticketList.size() != 0){
+                    Ticket ticketEntity = ticketList.get(0).getTickets();
+                    pointLogDto.setTicketDto(new TicketDto(ticketEntity));
+                }
+            } else if ("C".equals(e.getUseSep())){
+                List<PointLogPoint> pointList = e.getPointLogPoints();
+                if (pointList.size() != 0){
+                    Point pointEntity = pointList.get(0).getPoint();
+                    PointDto pointDto = PointDto.builder()
+                            .paySep(pointEntity.getPaySep())
+                            .build();
+                    pointLogDto.setPointDto(pointDto);
+                }
+            }
+
+            result.add(pointLogDto);
+        }
+
+        return result;
+    }
 }

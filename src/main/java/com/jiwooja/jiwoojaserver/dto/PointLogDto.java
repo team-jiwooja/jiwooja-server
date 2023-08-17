@@ -1,5 +1,6 @@
 package com.jiwooja.jiwoojaserver.dto;
 
+import com.jiwooja.jiwoojaserver.domain.Point;
 import com.jiwooja.jiwoojaserver.domain.PointLog;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,14 @@ import java.time.LocalDateTime;
 public class PointLogDto {
     private Long pointLogId;
     private Long userId;
-    private String useSep;
+    private String useSep;  // (C:충전 / U:사용 / R:환불)
     private int point;
     private int totalPoint;
     private LocalDateTime inpDate;
+
+    private PointDto pointDto;
+    private TicketDto ticketDto;
+
 
     /* ===========================================================================
      * entity -> dto 변환을 위한 생성자
@@ -52,5 +57,16 @@ public class PointLogDto {
                 this.totalPoint = preTotalPoint - this.point;
                 break;
         }
+    }
+
+    /* =======================================================
+     * set FK Dto
+     * ======================================================= */
+    public void setPointDto(PointDto dto){
+        this.pointDto = dto;
+    }
+
+    public void setTicketDto(TicketDto dto){
+        this.ticketDto = dto;
     }
 }

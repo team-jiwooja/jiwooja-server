@@ -22,6 +22,8 @@ public class Point {
 
     private Integer purchasePrice;
 
+    private String paySep;
+
     private Boolean approved = false;
 
     private LocalDateTime approvalDateTime;
@@ -34,8 +36,9 @@ public class Point {
     private List<PointLogPoint> pointLogPoints = new ArrayList<>();
 
     @Builder
-    public Point(Integer purchasePrice, Boolean approved, LocalDateTime approvalDateTime, User user) {
+    public Point(Integer purchasePrice, String paySep, Boolean approved, LocalDateTime approvalDateTime, User user) {
         this.purchasePrice = purchasePrice;
+        this.paySep = paySep;
         this.approved = approved;
         this.approvalDateTime = approvalDateTime;
         setUser(user);
@@ -53,6 +56,7 @@ public class Point {
         return Point.builder()
                 .user(user)
                 .purchasePrice(pointDto.getPurchasePrice())
+                .paySep(pointDto.getPaySep())
                 .build();
     }
 

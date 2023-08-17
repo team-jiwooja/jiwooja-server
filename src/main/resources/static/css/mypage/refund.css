@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 586px;
+    font-family: 'SUITE', sans-serif;
+}
+
+.container {
+    width: 885px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.in-container {
+    background-color: #F5F5F5;
+}
+
+.logo {
+    display: block;
+    padding-left: 380px;
+}
+
+nav {
+    height: 118px;
+    background-color: #276FFF;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+section {
+    background-color: #F5F5F5;
+    border-top: 7px solid #F29F05;
+}
+
+.big-title {
+    font-size: 60px;
+    padding-top: 21px;
+    padding-right: 150px;
+    margin: 0;
+}
+
+.title {
+    padding-right: 650px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.content, .notice {
+    width: 800px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 auto ;
+}
+
+.notice-content {
+    padding: 5px 0;
+    padding-right: 20px;
+    border-radius: 10px;
+    background-color: #E8E8E8;
+    color: #5F5F5F;
+    font-size: 20px;
+}
+
+
+button {
+    width: 267px;
+    height: 68px;
+    margin: 0 auto ;
+    margin-left: 100px;
+    margin-top: 10px;
+    border: none;
+}
+
+.cancel-btn {
+    border-radius: 10px;
+    border: 2px solid #F2210C;
+    background: #FFF;
+    color: #F2210C;
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.refund-btn {
+    border-radius: 10px;
+    background: #276FFF;
+    color: #FFF;
+    font-size: 48px;
+    font-weight: 400;
+
+}
+
+/* refund2.html */
+.complete {
+    font-size: 48px;
+}
+
+.sentence {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.check {
+    margin-left: 300px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #276FFF;
+    color: #FFF;
+    font-size: 48px;
+    font-weight: 400;
+}

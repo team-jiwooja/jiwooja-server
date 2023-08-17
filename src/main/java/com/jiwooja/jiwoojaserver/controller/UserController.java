@@ -1,6 +1,7 @@
 package com.jiwooja.jiwoojaserver.controller;
 
 import com.jiwooja.jiwoojaserver.dto.UserDto;
+import com.jiwooja.jiwoojaserver.dto.UserViewDto;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import com.jiwooja.jiwoojaserver.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -30,4 +31,8 @@ public class UserController {
         return userService.usernameChecker(username);
     }
 
+    @PostMapping("/getUserInfo")
+    public UserViewDto getUserInfo() {
+        return userService.getUserInfo();
+    }
 }

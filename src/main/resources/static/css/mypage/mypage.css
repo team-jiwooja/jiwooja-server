@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SUITE', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.hd-container {
+    height: 5%;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.nav-container {
+    height: 15%;
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+section {
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+    padding-left: 200px;
+}
+
+footer{
+    height: 5%;
+}
+
+.big-title {
+    color: #1A1F8A;
+    font-size: 64px;
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+.name-info {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.id-info, .tel-info {
+    color: #5F5F5F;
+    font-size: 32px;
+    font-weight: 400;
+    display: inline;
+}
+
+.name-info {
+    display: inline;
+}
+
+.id-info{
+    margin-left: 20px;
+}
+
+
+.first-container {
+    border-bottom: 2px solid #1A1F8A;
+    width: 1084px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit {
+    font-size: 32px;
+    padding-left: 150px;
+}
+
+.second-container, .third-container {
+    border-radius: 10px;
+    border: 1px solid #1A1F8A;
+    background: #FFF;
+    width: 995px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+/* 수정 */
+.second-in-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* 수정 */
+ button {
+    width: 147px;
+    height: 45px;
+    margin-left: 20px;
+    font-size: 32px;
+}
+
+/* .btn삭제 */
+
+.usehistory-btn {
+    border-radius: 10px;
+    border: 2px solid #276FFF;
+    background: #FFF;
+}
+
+.charge-btn {
+    border-radius: 10px;
+    background: #276FFF;
+    color: #FFF;
+    border: 1px solid #276FFF;
+}
+
+.third-container {
+    height: 237px;
+    margin-bottom: 20px;
+}
+
+/* 수정 */
+.small-title {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.data {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.third-container .small-title {
+    margin: 10px;
+}
+
+/* 추가 */
+table {
+    width: 900px;
+    height: 100px;
+    margin: 10px auto;
+}
+
+/* 추가 */
+table {
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+
+/* 추가 */
+td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    padding: 5px;
+    text-align: center;
+    font-size: 32px;
+}
+
+/* 추가 */
+td:first-child {
+    border-left: none;
+}
+
+/* 추가 */
+.see-more {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 880px;
+}

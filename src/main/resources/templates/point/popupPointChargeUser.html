@@ -15,7 +15,7 @@
     <section>
         <p class="title">대리 입금</p>
         <article class="container">
-            <form action="" method="post">
+            <form method="post">
                 <div class="info">
                     <p>입금자명<span>*</span> <input type="text" name="name" id="name" placeholder="홍길동"></p>
                     <p>전화번호<span>*</span> <input type="tel" name="telv" id="telv" placeholder="01012345678"></p>
@@ -30,11 +30,33 @@
                     <li>입력하신 정보가 정확한지 확인해주세요. 입력하신 정보가 부정확 하여 일어난 피해는 책임 지지 않으며
                         만약 잘못 입력된 정보를 수정하고 싶으시다면 고객 안내> 문의 넣기를 통해 문의해 주세요.</li>
                 </ul>
-                <input class="submit-btn" type="submit" value="확인" onclick="javascript:self.close();"> <!-- 이게 맞는지 모르겠음 -->
+
+                <input id="btnClose" class="submit-btn" type="button" value="확인">
             </form>
             
             
        </article>
     </section>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script th:src="@{/resources/js/common.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    window.onload = () => {
+       window.resizeTo(1400, 740);
+       page_event();
+    }
+
+    // 페이지 이벤트 모음
+    function page_event(){
+        $('#btnClose').on('click',function(){
+            opener.location.reload();
+            window.close();
+        });
+    }
+
+    /*]]>*/
+</script>
+
 </body>
 </html>

@@ -41,15 +41,8 @@ public class PointService {
             point.setApprovalDateTime(LocalDateTime.now());
             pointRepository.save(point);
 
-            // 총합 업데이트
-            User user = point.getUser();
-            List<Point> approvedPurchases = pointRepository.findByApprovedTrue();
-            user.setPoints(approvedPurchases);
-            user.updateTotalPoints();
-            userRepository.save(user);
-
             // 포인트 로그 작성
-            pointLogService.pointLogging(user.getUserId(), "C", point.getPurchasePrice(), point);
+            pointLogService.pointLogging(point.getUser().getUserId(), "C", point.getPurchasePrice(), point);
 
 
         } else {

@@ -9,6 +9,7 @@ import com.jiwooja.jiwoojaserver.dto.PointLogDto;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PointLogService {
@@ -76,6 +77,7 @@ public class PointLogService {
      * @param preTotalPoint 현재 총합 포인트
      * @return boolean
      */
+    @Transactional
     public boolean pointLogging(Long userId, String useSep, int point, int preTotalPoint, Object entity){
         /* ========================================================================
          * 1. 계정 존재 확인 및 셋팅
@@ -110,9 +112,6 @@ public class PointLogService {
                     .build();
             pointLogTicketRepository.save(pointLogTicket);
 
-            // User 총합 포인트 업데이트
-            thisUser.setTotalPoints(pointLogDto.getTotalPoint());
-
         } else if("C".equals(useSep)){
             PointLogPoint pointLogPoint
                     = PointLogPoint.builder()
@@ -121,6 +120,12 @@ public class PointLogService {
                     .build();
             pointLogPointRepository.save(pointLogPoint);
         }
+
+        /* ========================================================================
+         * 5. User 총합 포인트 업데이트
+         * ======================================================================== */
+        thisUser.setTotalPoints(pointLogDto.getTotalPoint());
+        userRepository.save(thisUser);
 
         return true;
     }

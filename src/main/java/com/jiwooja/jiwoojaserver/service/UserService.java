@@ -3,6 +3,7 @@ package com.jiwooja.jiwoojaserver.service;
 import com.jiwooja.jiwoojaserver.domain.Authority;
 import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.dto.UserDto;
+import com.jiwooja.jiwoojaserver.dto.UserViewDto;
 import com.jiwooja.jiwoojaserver.exception.DuplicateUserException;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
@@ -69,6 +70,11 @@ public class UserService {
         return user.getUserId();
     }
 
+    /**
+     * 아이디 중복 체크
+     * @param username : 아이디
+     * @return boolean : true-사용가능 / false - 사용불가
+     */
     public boolean usernameChecker(String username) {
         Optional<User> user = userRepository.findByUsername(username);
         return !user.isPresent();
@@ -82,4 +88,18 @@ public class UserService {
         return authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+    /**
+     * user 정보
+     */
+    public UserViewDto getUserInfo(){
+        org.springframework.security.core.userdetails.User userSecurity = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findByUsername(userSecurity.getUsername())
+                .orElseThrow(() -> new NotFoundUserException("가입되지 않은 유저입니다."));
+
+        return UserViewDto.builder()
+                .username(user.getUsername())
+                .nickname(user.getNickname())
+                .pointsTotal(user.getPointsTotal())
+                .build();
+    }
 }

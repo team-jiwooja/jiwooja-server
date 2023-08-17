@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
+import java.math.BigInteger;
 
 
 public interface TrainSeatDao extends CrudRepository<Train, Integer> {
@@ -49,7 +50,11 @@ public interface TrainSeatDao extends CrudRepository<Train, Integer> {
     @Query(value = "DELETE FROM train_seat_table WHERE seat_code = ?1", nativeQuery = true)
     void deleteSeatByTicketNum(String seat_code);
 
+    @Modifying
     @Query(value = "UPDATE train_table SET train_seat_qty = train_seat_qty - ?2 WHERE train_code = ?1", nativeQuery = true)
     void decreaseSeatQtyByTrainCode(int trainCode, int decrementValue);
+
+    @Query(value = "SELECT COUNT(*) FROM train_table WHERE train_code = :trainCode", nativeQuery = true)
+    BigInteger countByTrainCode(@Param("trainCode") int trainCode);
 
 }

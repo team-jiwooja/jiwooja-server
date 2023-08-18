@@ -71,9 +71,7 @@ jobs:
             sudo docker run -it -d -p 8080:8080 --name $(sudo docker ps -a -q) choiboyun/jiwooja-server
             sudo docker image prune -f
             ps -ef | grep java
-            
-
-        uses: actions/checkout@v3
+          
 
 
       # Docker 이미지 Build (2)
@@ -89,6 +87,6 @@ jobs:
 
       # Docker Hub push (4)
       - name: docker Hub push
-        run: docker push choiboyun/jiwooja-server
+        run: docker push choiboyun/jiwooja-server트
 
 

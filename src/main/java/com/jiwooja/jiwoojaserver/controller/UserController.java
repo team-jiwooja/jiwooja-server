@@ -1,15 +1,13 @@
 package com.jiwooja.jiwoojaserver.controller;
 
 import com.jiwooja.jiwoojaserver.dto.UserDto;
+import com.jiwooja.jiwoojaserver.dto.UserViewDto;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import com.jiwooja.jiwoojaserver.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -28,4 +26,13 @@ public class UserController {
         return new ResponseEntity<>(userDto, HttpStatus.OK);
     }
 
+    @GetMapping("/usernameChecker")
+    public boolean usernameChecker(String username) {
+        return userService.usernameChecker(username);
+    }
+
+    @PostMapping("/getUserInfo")
+    public UserViewDto getUserInfo() {
+        return userService.getUserInfo();
+    }
 }

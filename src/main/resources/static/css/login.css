@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SUITE', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+a:link, a:visited {
+    color:black;
+    text-decoration: none;
+}
+
+input {
+    width: 200px;
+    height: 30px;
+}
+
+ul {
+    list-style: none;
+}
+
+ .hd-container {
+    height: 5%;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.nav-container {
+    height: 15%; 
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+section {
+    height:  75%;
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+    padding: 50px;
+}
+
+.login-name {
+    text-align: center;
+    font-size: 30px;
+    padding-right: 350px;
+    color: #1A1F8A;
+}
+
+.info {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.login {
+    width: 450px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #1A1F8A;
+
+}
+
+.inset {
+    text-align: center;
+    font-size: 16px;
+}
+
+.insert{
+    padding-top: 2px;
+}
+
+.insert > label {
+    font-weight: 700;
+}
+
+ #username, #pwd_txt{
+    padding: 10px;
+    border: 1px solid #1A1F8A;
+}
+
+#username {
+    margin-left: 17px;
+}
+
+.submit-btn {
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    background-color: #276FFF;
+    color: white;
+    border: 1px solid #276FFF;
+}
+
+.find {
+    display: flex;
+}
+
+.membership {
+    margin-left: 60px;
+}
+
+.notice {
+    display: flex;
+    color: #838383;
+}
+
+.notice > p {
+    margin-left: 200px;
+}
+
+.notice > button {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    background-color: #276FFF;
+    border: none;
+    border-radius: 10px;
+    color: #ffff;
+}

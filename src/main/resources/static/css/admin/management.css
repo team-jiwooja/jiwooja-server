@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SUITE', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.big-title a:link, a:visited {
+    color: #1A1F8A;
+    text-decoration: none;
+}
+
+
+a:link:not(.big-title a), 
+a:visited:not(.big-title a) {
+    color: black;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.hd-container {
+    height: 5%;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.nav-container {
+    height: 15%; 
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+section {
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+    padding-left: 200px;
+}
+
+
+
+.big-title {
+    color: #1A1F8A;
+    font-size: 64px;
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+.big-container{
+    display: flex;
+    padding-bottom: 30px;
+}
+
+.content1, .content2 {
+    width: 368px
+}
+
+.content1 {
+    border-radius: 10px 0px 0px 0px;
+    border: 1px solid #1A1F8A;
+    background: #FFF;
+    padding-left: 10px;
+}
+
+.check {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.insert {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 50px;
+}
+
+.check-btn {
+    width: 82px;
+    height: 27px;
+    color: #FFF;
+    border-radius: 5px;
+    background: #276FFF;
+    border: 1px solid #276FFF;
+    margin-left: 250px;
+    margin-bottom: 10px;
+}
+
+.content2 {
+    background-color: #F5F5F5;
+    border: 1px solid #1A1F8A;
+    stroke-width: 1px;
+    stroke: #1A1F8A;    
+    height: 519px;
+    padding-left: 10px;
+}
+
+.name{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.content2 :nth-child(2):not(.name, .tel){
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.id, .tel {
+    color: #848484;
+    font-size: 20px;
+}
+
+
+.info, .name-info {
+    margin-left: 54px;
+}
+
+.id-info, .tel-info {
+    padding-left: 20px;   
+}
+
+.content2 > button {
+    width: 140px;
+    height: 63px;
+    font-size: 15px;
+    color: #FFF;
+    border-radius: 10px;
+    border: none;
+    margin-left: 20px;
+    margin-top: 180px;
+}
+
+
+.blacklist-btn {
+    background: #2426A5;
+}
+
+.leave-btn {
+    background: #F2210C;
+}
+
+.small-container2 {
+    border-radius: 0px 10px 10px 0px;
+    border: 1px solid #1A1F8A;
+    background: #FFF;
+    width: 700px;
+    height: 681px;
+}
+.content3 {
+    border-radius: 10px;
+    background: #F5F5F5;
+    width: 651px;
+    height: 155px;
+    margin: 10px auto;
+}
+
+
+.small-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 15px;
+    padding-top: 10px;
+}
+.point {
+    font-size: 20px;
+    margin-left: 30px;
+
+    display: inline;
+}
+
+.data {
+    display: inline;
+    font-size: 48px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 200px;
+}
+
+.data > span {
+    font-size: 20px;
+}
+
+.content3 > button {
+    width: 119px;
+    height: 23px;  
+    border-radius: 5px;
+    background: #276FFF;
+    color: #FFF;
+    border: none;
+    margin-left: 500px;
+    margin-top: 10px;
+} 
+
+.content4 {
+    width: 651px;
+    height: 428px;
+    border-radius: 10px;
+    background: #F5F5F5;
+    margin: 10px auto;
+}
+
+.scrolltable{
+    border-collapse: collapse;
+    border: 1px solid #888;
+}
+.scrolltable thead {
+    display:block;
+    background: #1A1F8A;
+    color:#fff;
+}
+.scrolltable tbody{
+    display:block;
+    overflow:auto;
+    height: 310px;
+    width:100%;
+}
+/* 행 장식 */
+.scrolltable th, .scrolltable td {
+    padding: 5px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.scrolltable th:nth-child(1), .scrolltable td:nth-child(1){
+    width: 80px;
+}
+
+.scrolltable th:nth-child(2), .scrolltable td:nth-child(2){
+    width: 100px;
+}
+
+.scrolltable th:nth-child(3), .scrolltable td:nth-child(3){
+    width: 120px;
+}
+
+.scrolltable th:nth-child(4), .scrolltable td:nth-child(4){
+    width: 320px;
+}
+
+.scrolltable th:nth-child(5), .scrolltable td:nth-child(5){
+    width: 250px;
+}
+
+.scrolltable th:nth-child(6), .scrolltable td:nth-child(6){
+    width: 80px;
+}
+.scrolltable tr {
+    height: 56px;
+} 
+
+.scrolltable td {
+    border:1px solid #555;
+}
+
+.ticketing-btn {
+    border-radius: 5px;
+    background: #2426A5;
+    color: #FFF;
+    border: 1px solid #2426A5;
+}
+
+.refund-btn {
+    border-radius: 5px;
+    border: 1px solid #F2210C;
+    background: #FFF;
+    color: #F2210C;
+}

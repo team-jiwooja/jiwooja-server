@@ -5,14 +5,12 @@ import com.jiwooja.jiwoojaserver.domain.User;
 import com.jiwooja.jiwoojaserver.dto.PointDto;
 import com.jiwooja.jiwoojaserver.exception.NotFoundUserException;
 import com.jiwooja.jiwoojaserver.exception.PointNotFoundException;
-import com.jiwooja.jiwoojaserver.repository.PointLogRepository;
 import com.jiwooja.jiwoojaserver.repository.PointRepository;
 import com.jiwooja.jiwoojaserver.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,15 +39,8 @@ public class PointService {
             point.setApprovalDateTime(LocalDateTime.now());
             pointRepository.save(point);
 
-            // 총합 업데이트
-            User user = point.getUser();
-            List<Point> approvedPurchases = pointRepository.findByApprovedTrue();
-            user.setPoints(approvedPurchases);
-            user.updateTotalPoints();
-            userRepository.save(user);
-
             // 포인트 로그 작성
-            pointLogService.pointLogging(user.getUserId(), "C", point.getPurchasePrice(), point);
+            pointLogService.pointLogging(point.getUser().getUserId(), "C", point.getPurchasePrice(), point);
 
 
         } else {

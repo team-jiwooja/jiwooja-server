@@ -1,0 +1,451 @@
+/* @media only screen and (min-width: 1024px) {
+
+}*/
+* {
+  box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+ul, li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #5F5F5F;
+}
+/* a:hover{
+    text-decoration: underline;
+} */
+
+#wrap{
+    /* max-width: 1440px;
+    max-height: 1024px; */
+    width: 100%;
+    height: 100%;
+    /* margin-right: 100px;
+    margin-left: 100px; */
+    /* background-color: bisque; */
+}
+
+/* header */
+    #header{
+        width: 1350px;
+        height: 40px;
+        background-color: rgb(255, 255, 255);
+        margin: 0 auto;
+        /* border: 3px solid #000000; */
+    }
+    #header::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    /* 홈화면, 정보버튼들 */
+        .header-menu {
+            float: right;
+            margin-right: 70px;
+            margin-top: 8px;
+        }
+
+        .header-btn{
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .header-btn > li {
+            float: left;
+            margin-left: 40px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .header-btn li:hover a {
+            color:#000dff;
+        }
+        a:link, a:visited{
+            text-decoration: none;
+            color:  #5F5F5F;
+        }
+
+
+/* nav */
+    #nav{
+        /* width: 1440px; */
+        position: relative;
+        width: 1350px;
+        height: 80px;
+        background-color: #276FFF;
+        margin: 0 auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        border-width: 7px;
+        border-color: #F29F05;
+        border-style: none none solid none;
+    }
+    #nav::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    /* 로고 */
+        #logo{
+            float: left;
+            width: 150px;
+            height: 80px;
+            background-image: url(/resources/img/logo.png);
+            background-position: center;
+            overflow: hidden;
+            margin-left: 30px;
+            /* background-color: #ffd8d8; */
+        }
+
+    /* 메뉴바 */
+        #nav-menu {
+
+            width: 1200px;
+            height: 80px;
+            margin: 0 auto;
+            padding-top: 8px;
+            margin-right: 150px;
+            text-align: center;
+
+        }
+        #nav-menu ul {
+        font-size: 0;
+        list-style-type: none;
+
+        }
+        .rep-menu ul{
+            margin-left: 80px;
+
+        }
+        .rep-menu a{
+            color: #ffffff;
+            margin-left: 80px;
+            font-weight: bold;
+            text-decoration: none;
+
+        }
+        .detail-menu a{
+            color: #276FFF;
+            margin-left: 3px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .menu-line{
+            width:230px;
+            margin: 0 auto;
+        }
+        #nav-menu ul li {
+        font-family: "Open Sans", sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+
+        display: inline-block;
+        padding: 15px;
+        position: relative;
+        }
+        #nav-menu ul li ul {
+            border: 5px solid;
+            border-image: linear-gradient(to bottom,#1A1F8A,#76a4ff) 1;
+            display: none;
+        }
+        /* 대표메뉴 hover */
+        #nav-menu ul li:hover {
+            cursor: pointer;
+        }
+        #nav-menu ul li:hover a {
+            transition: all 0.3s ease-out;
+            color:#1A1F8A;
+        }
+        /* 대표메뉴 hover했을 때 상세메뉴 배경색*/
+        #nav-menu ul li:hover ul li {
+            display: block;
+            background-color: #F2F2F2;
+            }
+        /* 상세메뉴 hover 했을때 (배경색,위치)*/
+        #nav-menu ul li:hover ul {
+        display: block;
+        margin-top: 15px;
+        width: 250px;
+        background-color: #F2F2F2;
+        left: 0;
+        position: absolute;
+        }
+        /* 상세메뉴 hover 했을때 강조표시*/
+        #nav-menu ul li:hover ul li:hover {
+            width: 230px;
+            border-radius: 10px;
+            transition: all 0.3s ease-out;
+            margin: 0 auto;
+            background-color: #044BD9;
+        }
+        /* 상세메뉴 hover 했을때 글자색*/
+        #nav-menu ul li:hover ul li:hover a {
+            color: #ffffff;
+        }
+
+
+
+/* section */
+    #section{
+        width: 1350px;
+        height: 580px;
+        margin: 0 auto;
+
+    }
+
+    /* 슬라이더 */
+        .slide {
+            /* layout */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-wrap: nowrap;
+            /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
+            overflow: hidden;
+
+            /* position */
+            /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
+            position: relative;
+
+            /* size */
+            width: 1350px;
+            height: 300px;
+            /* border: 1px solid #000; */
+            /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+            user-select: none;
+            margin: 0 auto;
+        }
+        .slide_item {
+            /* layout */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+            position: relative;
+            left: 0px;
+
+            /* size */
+            width: 1350px;
+            height: 300px;
+            /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+            flex-shrink: 0;
+
+            /* transition */
+            transition: left 0.15s;
+        }
+        .slide_button {
+            /* layout */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* position */
+            position: absolute;
+            /* 버튼이 중앙에 위치하게 하기위해 계산 */
+            top: calc(50% - 16px);
+
+            /* size */
+            width: 32px;
+            height: 32px;
+
+            /* style */
+            border-radius: 100%;
+            background-color: #cccc;
+            cursor: pointer;
+        }
+
+        .slide_prev_button {
+            left: 10px;
+        }
+        .slide_next_button {
+            right: 10px;
+        }
+        /* 페이지네이션 스타일 */
+        ul,
+        li {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .slide_pagination {
+            /* layout */
+            display: flex;
+            gap: 5px;
+
+            /* position */
+            position: absolute;
+            bottom: 0;
+            /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .slide_pagination > li {
+            /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+            color: rgba(0, 0, 0, 0.525);
+            cursor: pointer;
+            font-size: 40px;
+        }
+        .slide_pagination > li.active {
+            /* 현재 슬라이드 색상은 투명도 없이 */
+            color: #ffffffd5;
+        }
+
+        .slide_item_duplicate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            left: 0px;
+            width: 100%;
+            height: 300px;
+            flex-shrink: 0;
+            transition: left 0.15s;
+        }
+
+
+    /* 예매버튼 */
+        .container-mainContant{
+            height: 280px;
+        }
+        .bookingLine{
+            width: 350px;
+            height: 184px;
+            margin-top: 45px;
+            margin-left: 100px;
+            border-radius: 10px 0px 0px 10px;
+            background:linear-gradient(to bottom,#276FFF,#7AA6FE);
+            box-shadow: 10px 10px 5px #1A1F8A;
+            border: 5px solid #7AA6FE;
+            float: left;
+        }
+        .bookingLine p{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .text{
+            padding-top: 50px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .boldText{
+            padding-top: 10px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: bolder;
+            text-shadow: 5px 5px #276FFF;
+        }
+
+        .button{
+            border: 0;
+            float: left;
+            width: 788px;
+            height: 190px;
+            /* border: 2px solid #111; */
+            margin-top: 45px;
+            cursor: pointer;
+
+        }
+        .trainButton{
+            cursor: pointer;
+            background-image: url(/resources/img/train.png);
+            width: 190px;
+            height: 190px;
+            margin-left: 10px;
+            border: 5px solid #d0ffb8;
+            background-color: #A0ED7A;
+            box-shadow:5px 5px 3px #ccc ;
+        }
+        .busButton{
+            cursor: pointer;
+            background-image: url(/resources/img/bus.png);
+            width: 190px;
+            height: 190px;
+            border: 5px solid #ffeec8;
+            background-color: #FFDF96;
+            box-shadow:5px 5px 3px #ccc ;
+        }
+        .airplaneButton{
+            cursor: pointer;
+            background-image: url(/resources/img/airplane.png);
+            width: 190px;
+            height: 190px;
+            border: 5px solid #ffd8bd;
+            background-color: #FFC296;
+            box-shadow:5px 5px 3px #ccc ;
+        }
+        .shipButton{
+            cursor: pointer;
+            background-image: url(/resources/img/ship.png);
+            width: 190px;
+            height: 190px;
+            border: 5px solid #c9fff7;
+            background-color: #97FFF0;
+            box-shadow:5px 5px 3px #ccc ;
+        }
+        .trainButton:hover p{
+            color: #ccc;
+        }
+        .busButton:hover p{
+            color: #ccc;
+        }
+        .airplaneButton:hover p{
+            color: #ccc;
+        }
+        .shipButton:hover p{
+            color: #ccc;
+        }
+        .buttonText{
+
+            margin-bottom: 50px;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px #5F5F5F;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+/* footer */
+    #footer{
+        width: 1350px;
+        height: 80px;
+        margin: 0 auto;
+    }
+    .outline{
+        border: 0;
+        height: 8px;
+        background-color: #276FFF;
+    }
+    .inline{
+        border: 0;
+        height: 4px;
+        background-color: #276FFF;
+        margin-top: 5px;
+    }
+
+
+    /* 흑백 로고 */
+        #logo2{
+            float: left;
+            width: 104px;
+            height: 80px;
+            background-image: url(/resources/img/logo2.png);
+            background-position: center;
+            overflow: hidden;
+            margin-left: 40px;
+
+        }
+
+    /* 회사 소개 */
+        .footerText{
+            float: left;
+            /* border: 1px solid #000; */
+            margin-left: 100px;
+            margin-top: 30px ;
+        }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/css/main.css}" />
+
+    <title>지우자:지금우리자리는</title>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- header -->
+        <div id="header"style="z-index: 4;">
+            <div class="header-menu">
+                <ul class="header-btn">
+                    <li>
+                        <a href="/JIUJA/main">
+                        <i class="fa fa-home fa-1g" aria-hidden="true"></i>
+                        홈으로 돌아가기
+                        </a>
+                    </li>
+                    <li class="noVali"><a href="/JIUJA/login"> 로그인 </a></li>
+                    <li class="okVali"><a href="#" onclick="signout()"> 로그아웃 </a></li>
+                    <li class="noVali"><a href="/JIUJA/join/membership"> 회원가입 </a></li>
+                    <li class="okVali"><a href="/mine/JIUJA/mypage"> 내정보 </a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- nav -->
+        <div id="nav"style="z-index: 3;">
+            <!-- 로고 -->
+            <div id="logo"></div>
+
+            <!-- 메뉴바 -->
+            <div id="nav-menu">
+                <ul>
+                    <li class="rep-menu"><a href="#!"> 예매하기 <i class="fa fa-angle-down"></i></a>
+                        <ul>
+                            <li class="detail-menu"><a href="#">기차</a></li>
+                            <hr class="menu-line" >
+                            <li class="detail-menu"><a href="#">버스</a></li>
+                            <hr class="menu-line">
+                            <li class="detail-menu"><a href="#">항공기</a></li>
+                        </ul>
+                    </li>
+                    <li class="rep-menu"><a href="#!">조회/환불하기 <i class="fa fa-angle-down"></i></a>
+                        <ul>
+                            <li class="detail-menu"><a href="#">예약조회</a></li>
+                            <hr class="menu-line">
+                            <li class="detail-menu"><a href="#">환불하기</a></li>
+                        </ul>
+                    </li>
+                    <li class="rep-menu"><a href="#!">이용안내 <i class="fa fa-angle-down"></i></a>
+                        <ul>
+                            <li class="detail-menu"><a href="#">승차권 이용안내</a></li>
+                            <hr class="menu-line">
+                            <li class="detail-menu"><a href="#">전철이용안내</a></li>
+                            <hr class="menu-line">
+                            <li class="detail-menu"><a href="#">광고안내</a></li>
+                        </ul>
+                    </li>
+                    <li class="rep-menu"><a href="#!">고객안내 <i class="fa fa-angle-down"></i></a>
+                        <ul>
+                            <li class="detail-menu"><a href="#">고객의소리 접수/조회</a></li>
+                            <hr class="menu-line">
+                            <li class="detail-menu"><a href="#">철도고객센터</a></li>
+                            <hr class="menu-line">
+                            <li class="detail-menu"><a href="#">유실물</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- section -->
+        <!-- 슬라이더 -->
+        <div id="section" style="z-index: 2;">
+            <div class="slide slide_wrap">
+                <div class="slide_item item1"><img src="/resources/img/mainImg.png"></div>
+                <div class="slide_item item2"><img src="/resources/img/mainImg2.png" ></div>
+                <div class="slide_item item3"><img src="/resources/img/mainImg.png" ></div>
+                <div class="slide_item item4"><img src="/resources/img/mainImg2.png" ></div>
+                <div class="slide_prev_button slide_button">◀</div>
+                <div class="slide_next_button slide_button">▶</div>
+                <ul class="slide_pagination"></ul>
+            </div>
+
+
+            <!-- 예매 버튼 -->
+            <div class="container-mainContant">
+                <div class="bookingLine">
+                    <p class="text">무얼 타고 가시나요?</p>
+                    <p class="boldText">&nbsp;&nbsp;예매하러 가기 ></p>
+                </div>
+                <div class="button">
+                    <button class="trainButton"><a href="#"><p class="buttonText">철도 예매</p></a></button>
+                    <button class="busButton"><a href="#"></a><p class="buttonText">버스 예매</p></a></button>
+                    <button class="airplaneButton"><a href="#"><p class="buttonText">항공편 예매</p></a></button>
+                    <button class="shipButton"><a href="#"><p class="buttonText">배편 예매</p></a></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- footer -->
+        <div id="footer" style="z-index: 1;">
+            <hr class="outline">
+            <hr class="inline">
+
+            <!--흑백 로고 -->
+            <div id="logo2"></div>
+
+            <!-- 회사 소개 -->
+            <p class="footerText">
+                대표:변중연 | 상호: 지우자 | 사업자 등록: ***-**-***** | 전화번호 : 000-0000-0000 |팩스 : 0000-0000
+            </p>
+        </div>
+    </div>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<script th:src="@{/resources/js/app.js}"></script>
+
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script th:src="@{/resources/js/common.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+        window.onload = () => {
+            loginTf(/*[[ ${params} ]]*/);
+        }
+
+    /*]]>*/
+</script>
+
+</body>
+</html>

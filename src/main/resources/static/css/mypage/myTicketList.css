@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SUITE', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+
+.big-title a:link, a:visited {
+    color: #1A1F8A;
+    text-decoration: none;
+}
+
+
+a:link:not(.big-title a), 
+a:visited:not(.big-title a) {
+    color: black;
+    text-decoration: none;
+}
+
+
+ul {
+    list-style: none;
+}
+
+.hd-container {
+    height: 5%;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.nav-container {
+    height: 15%; 
+    background-color: orange;
+    border: 1px solid orange;
+}
+
+section {
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+    padding-left: 200px;
+}
+
+footer{
+    height: 5%;
+}
+
+.big-title {
+    color: #1A1F8A;
+    font-size: 64px;
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+.big-title span {
+    font-size: 48px;
+}
+
+.first-container {
+    border-radius: 10px;
+    border: 1px solid #1A1F8A;
+    background: #FFF;
+    width: 995px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+
+.small-title {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 10px;
+}
+
+.data {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.second-container .small-title {
+    margin: 10px;
+}
+
+.scrolltable{
+    border-collapse: collapse;
+    border: 1px solid #888;
+}
+.scrolltable thead {
+    display:block;
+    background: #1A1F8A;
+    color:#fff;
+}
+.scrolltable tbody{
+    display:block;
+    overflow:auto;
+    height: 620px;
+    width:100%;
+}
+/* 행 장식 */
+.scrolltable th, .scrolltable td {
+    padding: 5px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.scrolltable th:nth-child(1), .scrolltable td:nth-child(1){
+    width: 80px;
+}
+
+.scrolltable th:nth-child(2), .scrolltable td:nth-child(2){
+    width: 100px;
+}
+
+.scrolltable th:nth-child(3), .scrolltable td:nth-child(3){
+    width: 120px;
+}
+
+.scrolltable th:nth-child(4), .scrolltable td:nth-child(4){
+    width: 320px;
+}
+
+.scrolltable th:nth-child(5), .scrolltable td:nth-child(5){
+    width: 250px;
+}
+
+.scrolltable th:nth-child(6), .scrolltable td:nth-child(6){
+    width: 80px;
+}
+.scrolltable tr {
+    height: 56px;
+} 
+
+.scrolltable td {
+    border:1px solid #555;
+}
+
+.btn {
+    width: 60px;
+}
+
+button {
+    width: 52px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.ticketing-btn {
+    border-radius: 5px;
+    background: #2426A5;
+    color: #FFF;
+    border: 1px solid #2426A5;
+}
+
+.refund-btn {
+    border-radius: 5px;
+    border: 1px solid #F2210C;
+    background: #FFF;
+    color: #F2210C;
+}

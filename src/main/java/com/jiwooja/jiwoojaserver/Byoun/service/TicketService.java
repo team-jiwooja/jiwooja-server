@@ -1,31 +1,19 @@
 package com.jiwooja.jiwoojaserver.Byoun.service;
 
-import com.jiwooja.jiwoojaserver.Byoun.dto.TicketDTO;
-import com.jiwooja.jiwoojaserver.Byoun.repository.TicketsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @Service
 public class TicketService {
-
     @Autowired
-    private TicketsRepository ticketRepository;
+    private JdbcTemplate jdbcTemplate;
 
-    public List<TicketDTO> searchMemTicket(String nickName) {
-        return ticketRepository.findByNickname(nickName);
-    }
+    public void insertTicket(String trainName, int trainNum, int trainHoNum, int date,
+                             String startingSubway, String endingSubway, String seatName,
+                             int price, String nickname) {
+        String query = "INSERT INTO tickets (train_name, train_num, train_ho_num, date, starting_subway, ending_subway, seat_name, price, nickname) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    @Transactional
-    public boolean refundMemTicket(String ticketNum) {
-        Optional<TicketDTO> ticket = ticketRepository.findById(ticketNum);
-        if (ticket.isPresent()) {
-            ticketRepository.deleteById(ticketNum);
-            return true;
-        }
-        return false;
+        jdbcTemplate.update(query, trainName, trainNum, trainHoNum, date, startingSubway, endingSubway, seatName, price, nickname);
     }
 }

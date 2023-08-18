@@ -31,13 +31,13 @@ public class Ticket {
     private User user;
 
     @Column(name = "TRAIN_NUM", nullable = false)
-    private Long trainNum;
+    private Long trainNum;      // 열차번호 ex) 420번 ktx
 
-    @Column(name = "TRAIN_CODE", nullable = false)
-    private Long trainCode;
+    @Column(name = "TRAIN_HO_NUM", nullable = false)
+    private Long trainHoNum;     // 호차번호
 
-    @Column(name = "SEAT_CODE", nullable = false)
-    private Long seatCode;
+    @Column(name = "SEAT_NAME", nullable = false)
+    private String seatName;      // 좌석이름
     // END - FK
 
 
@@ -88,13 +88,13 @@ public class Ticket {
      * =========================================================================== */
     @Builder
     public Ticket(
-            User user, Long trainNum, Long trainCode,
-            Long seatCode, String ticketNum, int price,
+            User user, Long trainNum, Long trainHoNum,
+            String seatName, String ticketNum, int price,
             String paySep, String refundYn){
         this.user = user;
         this.trainNum = trainNum;
-        this.trainCode = trainCode;
-        this.seatCode = seatCode;
+        this.trainHoNum = trainHoNum;
+        this.seatName = seatName;
         this.ticketNum = ticketNum;
         this.price = price;
         this.paySep = paySep;

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,12 +39,12 @@ public class TrainSeatService {
 
         Train existingTrain = trainSeatDao.chkTrainTable(trainNum, trainCode, hoNum, hoType);
 
-        if (existingTrain == null) {
+        if (trainSeatDao.countByTrainCode(trainCode).compareTo(BigInteger.ZERO) == 0) {
             // train_code가 존재하지 않을 때
             trainSeatDao.setTrainHo(trainNum, trainCode, hoNum, hoType, hoQty);
         } else {
             // train_code가 이미 존재할 때
-            int decrementValue = seatList.size();
+            int decrementValue = seatList.size() / 2;
             trainSeatDao.decreaseSeatQtyByTrainCode(trainCode, decrementValue);
         }
 

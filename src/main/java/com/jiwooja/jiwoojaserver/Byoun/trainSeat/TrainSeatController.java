@@ -20,7 +20,7 @@ public class TrainSeatController {
 
     @PostMapping("/add")
     //열차 예약
-    //(int carNum, int trainNum, int chk, int trainPrice)
+    //(int carNum(호차 ex)1호차), int trainNum, int chk, int trainPrice)
     public ResponseEntity<String> addTrainAndSeats(@RequestBody TrainSeatRequest request) {
         trainSeatService.addTrainAndSeats(request.getCarNum(), request.getSeatList(), request.getTrainNum(), request.getTrainPrice());
         return ResponseEntity.ok("열차정보 및 좌석 등록 성공");

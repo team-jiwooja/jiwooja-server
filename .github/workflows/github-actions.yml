@@ -87,6 +87,6 @@ jobs:
 
       # Docker Hub push (4)
       - name: docker Hub push
-        run: docker push choiboyun/jiwooja-server트
+        run: docker push choiboyun/jiwooja-server
 
 

@@ -107,3 +107,12 @@ function ella_toTel(p){
     p = p.toString().replace(/[^0-9]/gi,'')
     return p.toString().replace(/(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/, '$1-$2-$3');;
 }
+
+// LocalDateTime 날짜 반환
+function ella_getDate(p){
+    if(ella_isBlank(p)){
+        return "";
+    }
+
+    return String(p).split('T')[0];
+}

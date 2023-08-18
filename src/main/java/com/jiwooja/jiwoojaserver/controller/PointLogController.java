@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/point")
+@RequestMapping("/pointLog")
 public class PointLogController {
     @Autowired
     private PointLogService pointLogService;

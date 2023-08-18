@@ -22,27 +22,171 @@ ul {
     list-style: none;
 }
 
-.hd-container {
-    height: 5%;
-    background-color: red;
-    border: 1px solid red;
+/* 수정 */
+/* header */
+#header{
+    width: 1350px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    /* border: 3px solid #000000; */
+}
+#header::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+/* 홈화면, 정보버튼들 */
+    .header-menu {
+        float: right;
+        margin-right: 70px;
+        margin-top: 8px;
+    }
+
+    .header-btn{
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .header-btn > li {
+        float: left;
+        margin-left: 40px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .header-btn li:hover a {
+        color:#000dff;
+    }
+    a:link, a:visited{
+        text-decoration: none;
+        color:  #5F5F5F;
+    }
+
+
+/* nav */
+#nav{
+    /* width: 1440px; */
+    position: relative;
+    height: 80px;
+    background-color: #276FFF;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-width: 7px;
+    border-color: #F29F05;
+    border-style: none none solid none;
+}
+#nav::after{
+    content: "";
+    display: block;
+    clear: both;
 }
 
-.nav-container {
-    height: 15%;
-    background-color: orange;
-    border: 1px solid orange;
-}
+/* 로고 */
+    #logo{
+        float: left;
+        width: 150px;
+        height: 80px;
+        background-image: url(../image/logo.png);
+        background-position: center;
+        overflow: hidden;
+        margin-left: 30px;
+        /* background-color: #ffd8d8; */
+    }
 
+/* 메뉴바 */
+    #nav-menu {
+
+        width: 1200px;
+        height: 80px;
+        margin: 0 auto;
+        padding-top: 8px;
+        margin-right: 150px;
+        text-align: center;
+
+    }
+    #nav-menu ul {
+    font-size: 0;
+    list-style-type: none;
+
+    }
+    .rep-menu ul{
+        margin-left: 80px;
+
+    }
+    .rep-menu a{
+        color: #ffffff;
+        margin-left: 80px;
+        font-weight: bold;
+        text-decoration: none;
+
+    }
+    .detail-menu a{
+        color: #276FFF;
+        margin-left: 3px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .menu-line{
+        width:230px;
+        margin: 0 auto;
+    }
+    #nav-menu ul li {
+    font-family: "Open Sans", sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+
+    display: inline-block;
+    padding: 15px;
+    position: relative;
+    }
+    #nav-menu ul li ul {
+        border: 5px solid;
+        border-image: linear-gradient(to bottom,#1A1F8A,#76a4ff) 1;
+        display: none;
+    }
+    /* 대표메뉴 hover */
+    #nav-menu ul li:hover {
+        cursor: pointer;
+    }
+    #nav-menu ul li:hover a {
+        transition: all 0.3s ease-out;
+        color:#1A1F8A;
+    }
+    /* 대표메뉴 hover했을 때 상세메뉴 배경색*/
+    #nav-menu ul li:hover ul li {
+        display: block;
+        background-color: #F2F2F2;
+        }
+    /* 상세메뉴 hover 했을때 (배경색,위치)*/
+    #nav-menu ul li:hover ul {
+    display: block;
+    margin-top: 15px;
+    width: 250px;
+    background-color: #F2F2F2;
+    left: 0;
+    position: absolute;
+    }
+    /* 상세메뉴 hover 했을때 강조표시*/
+    #nav-menu ul li:hover ul li:hover {
+        width: 230px;
+        border-radius: 10px;
+        transition: all 0.3s ease-out;
+        margin: 0 auto;
+        background-color: #044BD9;
+    }
+    /* 상세메뉴 hover 했을때 글자색*/
+    #nav-menu ul li:hover ul li:hover a {
+        color: #ffffff;
+    }
+
+
+/* 수정 */
 section {
     background-color: #F5F5F5;
     border: 1px solid #F5F5F5;
     padding-left: 200px;
 }
 
-footer{
-    height: 5%;
-}
 
 .big-title {
     color: #1A1F8A;
@@ -189,3 +333,63 @@ td:first-child {
     margin-left: 880px;
     margin-top: 10px;
 }
+
+/*추가*/
+
+.outline{
+    border: 0;
+    height: 8px;
+    background-color: #276FFF;
+}
+.inline{
+    border: 0;
+    height: 4px;
+    background-color: #276FFF;
+    margin-top: 5px;
+}
+
+
+/* 흑백 로고 */
+    #logo2{
+        float: left;
+        width: 104px;
+        height: 80px;
+        background-image: url(/resources/img/logo2.png);
+        background-position: center;
+        overflow: hidden;
+        margin-left: 40px;
+
+    }
+
+/* 회사 소개 */
+    .footerText{
+        float: left;
+        /* border: 1px solid #000; */
+        margin-left: 100px;
+        margin-top: 30px ;
+    }
+
+/* footer 하단 고정 [S] */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+#body-content {
+    padding-bottom: 30px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 30px; /* footer의 높이 */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* footer 하단 고정 [E] */

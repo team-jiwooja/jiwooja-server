@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class Paging {
     private Integer limitStart;
     private Integer limitEnd;
+    private String searchData;
 }

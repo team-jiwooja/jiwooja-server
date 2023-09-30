@@ -1,8 +1,11 @@
 package com.jiwooja.jiwoojaserver.controller;
 
+import com.jiwooja.jiwoojaserver.dto.Paging;
 import com.jiwooja.jiwoojaserver.dto.PointDto;
+import com.jiwooja.jiwoojaserver.dto.UserViewDto;
 import com.jiwooja.jiwoojaserver.service.PointService;
 import com.jiwooja.jiwoojaserver.service.UserService;
+import io.lettuce.core.dynamic.annotation.Param;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -35,9 +38,16 @@ public class PointController {
     }
 
     @PostMapping("/{pointId}/approve")
-    public ResponseEntity<String> approvePoint(@PathVariable Long pointId) {
+    public Map<String, Object> approvePoint(@PathVariable Long pointId) {
+        Map<String, Object> result = new HashMap<>();
         pointService.approvePoint(pointId);
-        return ResponseEntity.ok("포인트 입금 확인 및 승인 완료");
+        result.put("result", ResponseEntity.ok("포인트 입금 확인 및 승인 완료"));
+        return result;
+    }
+
+    @PostMapping("/getPointList")
+    public Map<String, Object> getPointList(@RequestBody Paging paging){
+        return pointService.getPointList(paging);
     }
 
 
